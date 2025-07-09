@@ -14,6 +14,7 @@ if (day < 10) {
 }
 const full_date = `${year}${month}${day}`
 let wasteObject = {};
+let total = 0;
 Promise.all(
     food_types.map(item =>
         getData(`/${item}/20250626`).then(data => {
@@ -22,4 +23,8 @@ Promise.all(
     )
 ).then(() => {
     console.log(wasteObject);
+    food_types.forEach((item) => {
+        total += wasteObject[item]
+    })
+    console.log(`total: ${total}`)
 });
