@@ -18,7 +18,7 @@ jobs:
           # Escape JSON quotes for JavaScript
           CONFIG_ESCAPED=$(echo '${{ secrets.FIREBASE_CONFIG }}' | sed 's/"/\\"/g')
           # Replace placeholder with <script> tag
-          sed -i "s|<!-- FIREBASE_CONFIG -->|<script>const firebaseConfig = $CONFIG_ESCAPED;</script>|g" ./page_analysis/analysis.html
+          sed -i "s|<!-- FIREBASE_CONFIG -->|<script>const firebaseConfig = $CONFIG_ESCAPED;</script>|g" /page_analysis/analysis.html
 
       # 3. Deploy to GitHub Pages
       - name: Deploy
