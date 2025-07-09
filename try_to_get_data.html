@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>get data from firebase</title>
+    </head>
+    <body>
+        <!--these are the given code from the firebase website-->
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+            import { getDatabase, ref, set, get} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyCYEoyWgcbPsiNFVd30KYjkshD5AgjF9Bk",
+                authDomain: "food-waste-record.firebaseapp.com",
+                databaseURL: "https://food-waste-record-default-rtdb.asia-southeast1.firebasedatabase.app",
+                projectId: "food-waste-record",
+                storageBucket: "food-waste-record.firebasestorage.app",
+                messagingSenderId: "891094328182",
+                appId: "1:891094328182:web:18d1c293b282324dabd057",
+                measurementId: "G-M6WWZ0CR05"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getDatabase();
+            function changeData(location,data) {
+                let set_ref = ref(db,location);
+                set(set_ref,data);
+            }
+            function getData(location) {
+                let get_ref = ref(db,location);
+                get(get_ref).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        console.log(`Before returning: ${snapshot}`)
+                        return snapshot;
+                    } else {
+                        return [1];
+                        console.log("Stupid error, no data now")
+                    }
+                })
+            }
+            function processList(snapshot) {
+                let data = [];
+                let return_list;
+                console.log(snapshot)
+                snapshot.forEach((item)=> {
+                    data.push(item);
+                }) // all still stupid snapshot format
+                console.log(data.val())
+            }
+            let raw_data = getData("Chilli")
+            processList(raw_data)
+        </script>
+    </body>
+</html>
