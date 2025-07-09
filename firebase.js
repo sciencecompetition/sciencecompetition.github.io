@@ -1,13 +1,4 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyCYEoyWgcbPsiNFVd30KYjkshD5AgjF9Bk",
-    authDomain: "food-waste-record.firebaseapp.com",
-    databaseURL: "https://food-waste-record-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "food-waste-record",
-    storageBucket: "food-waste-record.firebasestorage.app",
-    messagingSenderId: "891094328182",
-    appId: "1:891094328182:web:18d1c293b282324dabd057",
-    measurementId: "G-M6WWZ0CR05"
-};
+const firebaseConfig = process.env.firebase_config;
 
 // Initialize Firebase (provided by firebase tutorial/documentations)
 const app = initializeApp(firebaseConfig);
