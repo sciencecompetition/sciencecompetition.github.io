@@ -1,0 +1,15 @@
+body {
+    background-color: #F6FBF9;
+    font-family: "instrument sans";
+    text-align: center;
+}
+
+.create {
+    background-color: #84c7ae;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+    width: 300px;
+}
