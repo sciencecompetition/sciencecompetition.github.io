@@ -5,4 +5,46 @@
 .navbar {
     background: #555555;
     font-family: "instrument sans";
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: 40px;
+}
+
+.navdiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #ffffff;
+}
+
+li {
+    list-style: none;
+    display: inline-block
+}
+
+li a {
+    color: white;
+    margin-right: 25px;
+}
+
+.login, .signup {
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.login {
+    background-color: #229BCC;
+}
+
+.signup {
+    background-color: #6379F4;
+}
+
+.login a, .signup a {
+    color: white;
+    font-size: 40px;
 }
