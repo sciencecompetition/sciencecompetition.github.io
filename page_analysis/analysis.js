@@ -1,3 +1,5 @@
+import { getData } from "/firebase.js"
+
 const ele_today_waste = document.querySelector(".strong1");
 const raw_date = new Date();
 const year = raw_date.getFullYear();
