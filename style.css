@@ -51,10 +51,13 @@ li a {
 }
 
 .banner {
-    background-image: url(banner.jpg);
+    background-image: url(banner.jpg);  
     font-family: "instrument sans";
     margin-top: -80px;
     margin-left: -10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: -10px;
 
 }
 
@@ -62,4 +65,5 @@ h1 {
     color: #00FF2F;
     text-align: center;
     font-size: 120px;
+    text-stroke: 3px #000; /* Outline: 3px black */
 }
