@@ -32,29 +32,21 @@
                 let set_ref = ref(db,location);
                 set(set_ref,data);
             }
-            function getData(location) {
+            async function getData(location) {
                 let get_ref = ref(db,location);
-                get(get_ref).then((snapshot) => {
-                    if (snapshot.exists()) {
-                        console.log(`Before returning: ${snapshot}`)
-                        return snapshot;
-                    } else {
-                        return [1];
-                        console.log("Stupid error, no data now")
-                    }
-                })
+                let return_data;
+                return_data = await get(get_ref);
+                if (return_data.exists()) {
+                    return return_data.val();
+                } else {
+                    return [1];
+                    console.log("Stupid error, no data now")
+                }
             }
-            function processList(snapshot) {
-                let data = [];
-                let return_list;
-                console.log(snapshot)
-                snapshot.forEach((item)=> {
-                    data.push(item);
-                }) // all still stupid snapshot format
-                console.log(data.val())
-            }
-            let raw_data = getData("Chilli")
-            processList(raw_data)
+            getData("Chilli").then((data) => {
+                console.log(data[2][1])
+            }) //return a stupid promise
+            
         </script>
     </body>
 </html>
