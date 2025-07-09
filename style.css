@@ -60,20 +60,68 @@ a {
     font-size: 40px;
 }
 
-.banner {
-    background-image: url(banner.jpg);  
+.banner div {
+    background-image: url(/image_sources/banner.jpg);  
     font-family: "instrument sans";
     margin-top: -85px;
     margin-left: -10px;
     background-repeat: no-repeat;
     background-size: cover;
     margin-right: -10px;
-
 }
 
-h1 {
+.banner h1 {
     color: #00FF2F;
     -webkit-text-stroke: 0.3px black; /* Outline: 3px green */
     text-align: center;
     font-size: 120px;
+    margin-bottom:0px;
+}
+
+.descriptions {
+    margin-top: 40px;
+}
+
+.description_left, .description_right {
+    display:block;
+    background-color:#AAAAAA;
+    margin-top:24px;
+    margin-bottom:24px;
+    width: 80%;
+    height:200px;
+    display: flex;
+}
+
+.description_left {
+    margin-left: 0px;
+    margin-right: auto;
+    border-bottom-right-radius: 24px;
+    border-top-right-radius: 24px;
+}
+
+.description_left img {
+    border-bottom-right-radius: 24px;
+    border-top-right-radius: 24px;
+}
+
+.description_right{
+    margin-left: auto;
+    margin-right: 0px;
+    border-bottom-left-radius: 24px;
+    border-top-left-radius: 24px;
+}
+
+.description_right img {
+    border-bottom-left-radius: 24px;
+    border-top-left-radius: 24px;
+}
+
+.text {
+    font-family:"instrument sans";
+    margin-left:16px;
+}
+
+.photo {
+    height:200px;
+    width:auto;
 }
