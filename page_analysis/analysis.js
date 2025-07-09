@@ -11,10 +11,13 @@ if (day < 10) {
     day = `0${day}`
 }
 const full_date = `${year}${month}${day}`
-let wasteObject;
-food_types.forEach((item) => {
-    getData(`/${item}/20250626}`).then((data) => {
-        wasteObject[item]=data;
-    })
-})
-console.log(wasteObject)
+let wasteObject = {};
+Promise.all(
+    food_types.map(item =>
+        getData(`/${item}/20250626`).then(data => {
+            wasteObject[item] = data;
+        })
+    )
+).then(() => {
+    console.log(wasteObject);
+});
