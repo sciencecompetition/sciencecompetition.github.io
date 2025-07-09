@@ -11,7 +11,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getDatabase();
+const db = getDatabase()
+
 function changeData(location,data) {
     let set_ref = ref(db,location);
     set(set_ref,data);
