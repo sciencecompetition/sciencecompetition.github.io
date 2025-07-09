@@ -6,7 +6,7 @@
     <title>Food detail - AI Restaurant Food Waste Eliminator</title>
     <link rel="stylesheet" href="foodstyle.css">
     <link href='https://fonts.googleapis.com/css?family=Instrument Sans' rel='stylesheet'>
-    <script src="checkpc.js"></script>
+    <script src="/checkpc.js"></script>
 </head>
 <body>
     <div class="top">
@@ -14,12 +14,12 @@
         <div class="toptext">
             <h1>Corn</h1>
             <p>Waste today: <strong>NaN </strong>kg</p>
-            <button class="btnstyle1">Daily comparison</button>
-            <button class="btnstyle2">Weekly comparison</button>
-            <button class="btnstyle3">Monthly comparison</button>
+            <button class="btnstyle1" id="daily_btn">Daily comparison</button>
+            <button class="btnstyle2" id="weekly_btn">Weekly comparison</button>
+            <button class="btnstyle3" id="monthly_btn">Monthly comparison</button>
         </div>
     </div>
-    <div class="daily">
+    <div class="daily" id="daily">
         <div class="dailytext">
             <h1>Daily</h1>
             <p>Today: NaN kg <strong>(+NaNkg)</strong></p>
@@ -30,10 +30,10 @@
                 <button class="btnstyle3">Download as PDF</button>
             </div>
         </div>
-        <image src="daily.png" class="dailyimg"></image>
+        <image src="/image_sources/daily.png" class="dailyimg"></image>
     </div>
-    <div class="weekly">
-        <image src="weekly.png" class="weeklyimg"></image>
+    <div class="weekly" id="weekly">
+        <image src="/image_sources/weekly.png" class="weeklyimg"></image>
         <div class="weeklytext">
             <h1>Weekly</h1>
             <p>This week: NaN kg <strong>(+NaNkg)</strong></p>
@@ -45,7 +45,7 @@
             </div>
         </div>
     </div>
-    <div class="monthly">
+    <div class="monthly" id="monthly">
         <div class="monthlytext">
             <h1>Monthly</h1>
             <p>This month: NaN kg <strong>(+NaNkg)</strong></p>
@@ -56,10 +56,10 @@
                 <button class="btnstyle3">Download as PDF</button>
             </div>
         </div>
-        <image src="monthly.png" class="monthlyimg"></image>
+        <image src="/image_sources/monthly.png" class="monthlyimg"></image>
     </div>
     <div class="lightgbm">
-        <image src="LGBM.svg" class="lgbmimg"></image>
+        <image src="/image_sources/LGBM.svg" class="lgbmimg"></image>
         <div class="lgbmtext">
             <h1>LightGBM</h1>
             <p>Buy <strong>NaN </strong>kilograms of chilli</p>
@@ -71,7 +71,11 @@
 </body>
 <script>
     document.getElementById('homeBtn').onclick = function() {
-        window.location.href = 'index.html';
+        window.location.href = '/index.html';
     };  
+    ["daily","weekly","monthly"].forEach((item) => {
+        document.getElementById(`${item}_btn`).onclick = () => {
+        window.location.href = `food.html#${item}`
+    } })
 </script>
 </html>
