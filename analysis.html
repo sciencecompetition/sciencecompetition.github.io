@@ -14,20 +14,20 @@
         <p>You have wasted around <strong class="strong1">NaN </strong>kilograms of food waste today!</p>
     </div>
     <div class="deepseek">
-        <image src="deepseek-logo-01.png" class="deepseekimg"></image>
+        <image src="deepseek-logo-01.png" class="deepseekimg" id="deepseekimg"></image>
         <h1>Ask AI Assistant on Food Waste Info</h1>
         
     </div>
     <div class="chilli">
-        <image src="https://www.harighotra.co.uk/images/Shutterstock/chillies_560x560.jpg" class="chilliimg"></image>
+        <image src="https://www.harighotra.co.uk/images/Shutterstock/chillies_560x560.jpg" class="chilliimg" index="chilli"></image>
         <h1>Check Chilli Food Waste</h1>
     </div>
     <div class="corn">
-        <image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqQg6Ktb97YXOU1w9eEkN_MbIUVyoXL0jHcA&s" class="cornimg"></image>
+        <image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqQg6Ktb97YXOU1w9eEkN_MbIUVyoXL0jHcA&s" class="cornimg" index="corn"></image>
         <h1>Check Corn Food Waste</h1>
     </div>
     <div class="meatball">
-        <image src="https://www.giallozafferano.com/images/270-27011/Meatballs_1200x800.jpg" class="meatballimg"></image>
+        <image src="https://www.giallozafferano.com/images/270-27011/Meatballs_1200x800.jpg" class="meatballimg" index="meatball"></image>
         <h1>Check Meatball Food Waste</h1>
     </div>
     <div class="barchart">
@@ -64,6 +64,18 @@
 <script>
     document.getElementById('homeBtn').onclick = function() {
         window.location.href = 'index.html';
+    };
+    document.getElementById('deepseekimg').onclick = function() {
+        window.location.href = '#';
+    };
+    document.querySelector('.chilliimg').onclick = function() {
+        window.location.href = 'food.html';
+    };
+    document.querySelector('.cornimg').onclick = function() {
+        window.location.href = 'food.html';
+    };
+    document.querySelector('.meatballimg').onclick = function() {
+        window.location.href = 'food.html';
     };
 </script>
 </html>

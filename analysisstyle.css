@@ -45,6 +45,11 @@ h1 {
     height: 114px;
 }
 
+.chilliimg:hover, .cornimg:hover, .meatballimg:hover, .deepseekimg:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
 .barchart, .piechart, .linechart {
     display: flex;
     align-items: center;
