@@ -1,5 +1,3 @@
-const firebaseConfig = process.env.firebase_config;
-
 // Initialize Firebase (provided by firebase tutorial/documentations)
 const app = initializeApp(firebaseConfig);
 const db = getDatabase()
