@@ -7,9 +7,8 @@
     font-family: "instrument sans";
     padding-right: 15px;
     padding-left: 15px;
-    font-size: 20px;
+    font-size: 40px;
     margin: -15px;
-    height: 100%;
 }
 
 .navdiv {
@@ -58,7 +57,7 @@ a {
 
 .login a, .signup a {
     color: white;
-    font-size: 20px;
+    font-size: 40px;
 }
 
 .banner {
@@ -76,5 +75,5 @@ h1 {
     color: #00FF2F;
     -webkit-text-stroke: 0.3px black; /* Outline: 3px green */
     text-align: center;
-    font-size: 60px;
+    font-size: 120px;
 }
