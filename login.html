@@ -36,8 +36,13 @@
             <input type="checkbox" id="remember" name="remember" value="yes">
             <p>Remember me?</p>
             <a href="#">Forget password?</a>
-        </div>     
+        </div>
+        <button class="submitbtn" id="submitBtn">Submit</button>     
     </div>
-    
+    <script>
+        document.getElementById('submitBtn').onclick = function() {
+            window.location.href = 'analysis.html';
+        };
+    </script>
 </body>
 </html>

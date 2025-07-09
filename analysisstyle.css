@@ -1,0 +1,112 @@
+body {
+    font-family: 'Instrument Sans';
+    background-color: #F9F5FF;
+}
+
+.strong1 {
+    font-weight: bold;
+    color: red;
+}
+
+.welcometext {
+    font-size: 30px;
+}
+
+.deepseekimg {
+    height: 163px;
+    width: 163px;
+}
+
+.deepseek, .chilli, .corn, .meatball{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: normal;
+}
+
+.chilliimg {
+    width: 161px;
+    height: 161px;
+    border-radius: 20px;
+}
+
+.cornimg {
+    width: 161px;
+    height: 114px;
+    border-radius: 20px;
+}
+
+.meatballimg {
+    width: 161px;
+    height: 114px;
+}
+
+.barchart, .piechart, .linechart {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.barchartimg {
+    width: 50%;
+    height: auto;
+}
+
+.barcharttext, .piecharttext, .linecharttext {
+    width: 50%;
+}
+
+.btnstyle1 {
+    border-radius: 20px;
+    font-size: 40px;
+    width: 80%;
+    color: white;
+    border: none;
+    background-color: #229BCC;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.btnstyle2 {
+    border-radius: 20px;
+    font-size: 40px;
+    width: 80%;
+    color: white;
+    background-color: #6379F4;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    padding: 10px;
+    margin: 20px;
+}
+
+.btnstyle3 {
+    border-radius: 20px;
+    font-size: 40px;
+    width: 80%;
+    color: white;
+    background-color: #6D5DD3;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    padding: 10px;
+    margin: 20px;
+}
+
+.homebtn {
+    background-color: #229BCC;
+    color: white;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    font-size: 40px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
