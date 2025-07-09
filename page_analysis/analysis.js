@@ -11,4 +11,6 @@ if (day < 10) {
 }
 const full_date = `${year}${month}${day}`
 let today_waste;
-console.log(getData(`/Chilli/20250626}`))
+getData(`/Chilli/20250626}`).then((data) => {
+    console.log(data);
+})
