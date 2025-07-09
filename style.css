@@ -8,6 +8,7 @@
     padding-right: 15px;
     padding-left: 15px;
     font-size: 40px;
+    margin: -15px;
 }
 
 .navdiv {
@@ -47,4 +48,22 @@ li a {
 .login a, .signup a {
     color: white;
     font-size: 40px;
+}
+
+.banner {
+    background-image: url(banner.jpg);  
+    font-family: "instrument sans";
+    margin-top: -80px;
+    margin-left: -10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: -10px;
+
+}
+
+h1 {
+    color: #00FF2F;
+    -webkit-text-stroke: 0.3px black; /* Outline: 3px green */
+    text-align: center;
+    font-size: 120px;
 }
