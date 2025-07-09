@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepseek</title>
+    <link rel="stylesheet" href="deepseek.css">
+    <script src="checkpc.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Instrument Sans' rel='stylesheet'>
+</head>
+<body>
+    <h1>AI Assistant</h1>
+    <div class="deepseekwelcometext">
+        <img src="deepseek-logo-01.png" class="deepseekimg" id="deepseekimg"></img>
+        <div class="chatbubble">
+            <p>Welcome, Chan Hoosun Shui Yeung! I am Deepseek! I will answer all your questions about food waste management</p>
+        </div>
+    </div>
+    <div class="usertext">
+        <div class="chatbubble">
+            <p>What is food waste?</p>
+        </div>
+        <img src="deepseek-logo-01.png" class="deepseekimg"></img>
+    </div>
+    <div class="userinputverygood">
+        <input type="text" id="userInput" placeholder="Type your question here..." class="userinput">
+        <button id="sendButton" class="sendButton">Send</button>
+    </div>
+    <button class="homeBtn" id="homeBtn">Home</button>
+    <script>
+        document.getElementById('homeBtn').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
