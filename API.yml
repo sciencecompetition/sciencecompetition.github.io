@@ -1,3 +1,9 @@
+name: Stupid, get the API_key need so long time
+
+on:
+  push:
+    branches: [analysis-page_code]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -21,7 +27,7 @@ jobs:
       - name: Add Firebase Config
         run: |
           CONFIG_ESCAPED=$(echo '${{ secrets.FIREBASE_CONFIG }}')
-          sed -i "s|<!-- FIREBASE_CONFIG -->|<script>const API_key = \"$CONFIG_ESCAPED\";</script>|g" pge_analysis/analysis.html
+          sed -i "s|<!-- FIREBASE_CONFIG -->|<script>const API_key = \"$CONFIG_ESCAPED\";</script>|g" page_analysis/analysis.html
 
       # 4. Deploy to GitHub Pages
       - name: Deploy
