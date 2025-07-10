@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
+import { getDatabase, ref, set, get, query, orderByKey, startAt, endAt } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
 
 const API_key = window.firebase_API_key;
 const firebaseConfig = {
@@ -29,4 +29,15 @@ export async function getData(location) {
     } else {
         return {"Status":false};
     }
-} 
+}
+
+export async function getDataList(type, start_num, end_num) {
+    const getList_ref = ref(db,type)
+    const getList_query = query(getList_ref, orderByKey(), startAt(start_num), endAt(end_num))
+    const snapshot = await get(getList_query)
+    let return_list = [];
+    snapshot.forEach((data) => {
+        return_list.push(data.val());
+    })
+    return return_list;
+}
