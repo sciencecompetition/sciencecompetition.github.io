@@ -1,6 +1,18 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
 
+const API_key = window.firebase_API_key;
+const firebaseConfig = {
+  apiKey: API_key,
+  authDomain: "food-waste-record.firebaseapp.com",
+  databaseURL: "https://food-waste-record-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "food-waste-record",
+  storageBucket: "food-waste-record.firebasestorage.app",
+  messagingSenderId: "891094328182",
+  appId: "1:891094328182:web:18d1c293b282324dabd057",
+  measurementId: "G-M6WWZ0CR05"
+};
+
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app)
 
