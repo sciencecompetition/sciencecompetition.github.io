@@ -1,0 +1,20 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app)
+
+export function changeData(location,data) {
+    let set_ref = ref(db,location);
+    set(set_ref,data);
+}
+export async function getData(location) {
+    let get_ref = ref(db,location);
+    let return_data;
+    return_data = await get(get_ref);
+    if (return_data.exists()) {
+        return {"data":return_data.val(),"Status":true};
+    } else {
+        return {"Status":false};
+    }
+} 

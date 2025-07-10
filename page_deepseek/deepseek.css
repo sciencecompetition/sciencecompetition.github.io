@@ -1,0 +1,65 @@
+* {
+    background-color: #F5F9FF;
+    font-family: "Instrument Sans";
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.deepseekwelcometext {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.usertext {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.deepseekimg {
+    width: 263px;
+    min-height: 263px;
+}
+
+.chatbubble {
+    border-radius: 20px;
+    border: 1px solid black;
+    height: auto;
+    min-height: 263px;
+    min-width: 50%;
+    padding: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.userinput {
+    width: 70%;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.sendButton {
+    width: 30%;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.userinputverygood {
+    display: flex;
+    align-items: center;
+
+}
+
+.homeBtn {
+    background-color: #229BCC;
+    color: white;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    font-size: 40px;
+    padding: 10px;
+    margin-top: 20px;
+}
