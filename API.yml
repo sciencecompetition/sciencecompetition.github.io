@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Check if analysis.html exists and print first 10 lines
         run: |
-          if [ -f ./page_analysis/analysis.html ]; then
+          if [ -f .page_analysis/analysis.html ]; then
             echo "analysis.html exists!"
             head -n 10 page_analysis/analysis.html
           else
