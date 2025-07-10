@@ -13,7 +13,7 @@ jobs:
         run: |
           if [ -f ./page_analysis/analysis.html ]; then
             echo "analysis.html exists!"
-            head -n 10 ./page_analysis/analysis.html
+            head -n 10 page_analysis/analysis.html
           else
             echo "analysis.html NOT found!"
             exit 1
@@ -26,7 +26,7 @@ jobs:
       - name: Add Firebase Config
         run: |
           CONFIG_ESCAPED=$(echo '${{ secrets.FIREBASE_CONFIG }}'
-          sed -i "s|<!-- FIREBASE_CONFIG -->|<script>const API_key = \"$CONFIG_ESCAPED\";</script>|g" ./page_analysis/analysis.html
+          sed -i "s|<!-- FIREBASE_CONFIG -->|<script>const API_key = \"$CONFIG_ESCAPED\";</script>|g" page_analysis/analysis.html
       # 3. Deploy to GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
