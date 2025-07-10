@@ -25,11 +25,8 @@ jobs:
       # 2. Inject Firebase config as 'firebaseConfig'
       - name: Add Firebase Config
         run: |
-          # Encode FIREBASE_CONFIG as base64
-          CONFIG_B64=$(echo '${{ secrets.FIREBASE_CONFIG }}' | base64 -w0)
-          # Safely inject it and decode in JavaScript
-          sed -i "s|<!-- FIREBASE_CONFIG -->|<script>const firebaseConfig = JSON.parse(atob('$CONFIG_B64'));</script>|g" /page_analysis/analysis.html
-
+          CONFIG_ESCAPED=$(echo '${{ secrets.FIREBASE_CONFIG }}' | sed 's/[&/\]/\\&/g; s/"/\\\"/g')
+          sed -i "s|<!-- FIREBASE_CONFIG -->|<script>const firebaseConfig = \"$CONFIG_ESCAPED\";</script>|g" /page_analysis/analysis.html
       # 3. Deploy to GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
