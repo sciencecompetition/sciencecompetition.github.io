@@ -1,0 +1,41 @@
+name: Stupid, get the API_key need so long time
+
+on:
+  push:
+    branches: ["analysis-page_code"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout code
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # 2. Check if analysis.html exists and print first 10 lines
+      - name: Check if analysis.html exists and print first 10 lines
+        run: |
+          if [ -f page_analysis/analysis.html ]; then
+            echo "analysis.html exists!"
+            head -n 10 page_analysis/analysis.html
+          else
+            echo "analysis.html NOT found!"
+            exit 1
+          fi
+
+      # 3. Inject Firebase config as 'firebaseConfig'
+      - name: Add Firebase Config
+        run: |
+          CONFIG_ESCAPED=$(echo '${{ secrets.FIREBASE_CONFIG }}')
+          sed -i "s|<!-- FIREBASE_CONFIG -->|<script>const API_key = \"$CONFIG_ESCAPED\";</script>|g" page_analysis/analysis.html
+
+      # 4. Deploy to GitHub Pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+
+      # 5. Print the secrets hash
+      - name: print the secrets
+        run: echo -n "${{ secrets.FIREBASE_CONFIG }}" | sha256sum
