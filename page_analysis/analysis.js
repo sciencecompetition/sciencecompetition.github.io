@@ -1,6 +1,6 @@
 import { getData } from "/firebase.js"
 
-const ele_today_waste = document.querySelector(".strong1");
+const today_waste_ele = document.querySelector(".strong1");
 const raw_date = new Date();
 const year = raw_date.getFullYear();
 const food_types = ["Chilli","Corn","Meatball"]
@@ -13,18 +13,17 @@ if (day < 10) {
     day = `0${day}`
 }
 const full_date = `${year}${month}${day}`
-let wasteObject = {};
+let waste_dataObject = {};
 let total = 0;
 Promise.all(
     food_types.map(item =>
         getData(`/${item}/20250626`).then(data => {
-            wasteObject[item] = data;
+            waste_dataObject[item] = data;
         })
     )
 ).then(() => {
-    console.log(wasteObject);
     food_types.forEach((item) => {
-        total += wasteObject[item]
+        total += waste_dataObject[item]["data"]
     })
-    console.log(`total: ${total}`)
+    today_waste_ele.innerHTML = total.toString();
 });
