@@ -8,17 +8,16 @@
     <link rel="stylesheet" href="foodstyle.css">
     <link href='https://fonts.googleapis.com/css?family=Instrument Sans' rel='stylesheet'>
     <script src="/checkpc.js"></script>
-    <script>
-        //testing
-        console.log(window.API_key)
-    </script>
+    <script src="/firebase.js" type="module"></script>
+    <script src="food.js" type="module"></script>
 </head>
 <body>
     <div class="top">
         <image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqQg6Ktb97YXOU1w9eEkN_MbIUVyoXL0jHcA&s" class="foodimg"></image>
         <div class="toptext">
-            <h1>Corn</h1>
-            <p>Waste today: <strong>NaN </strong>kg</p>
+            <h1 id="title">Corn</h1>
+            <p>Total historical waste: <strong id="waste_total">NaN</strong> kg</p>
+            <p>Waste today: <strong id="waste_today">NaN</strong> kg</p>
             <button class="btnstyle1" id="daily_btn">Daily comparison</button>
             <button class="btnstyle2" id="weekly_btn">Weekly comparison</button>
             <button class="btnstyle3" id="monthly_btn">Monthly comparison</button>
@@ -27,9 +26,9 @@
     <div class="daily" id="daily">
         <div class="dailytext">
             <h1>Daily</h1>
-            <p>Today: NaN kg <strong>(+NaNkg)</strong></p>
-            <p>Total: NaN kg</p>
-            <p>Average daily: NaN kg</p>
+            <span id="daily_now">Today: NaN kg </span> <strong id="daily_difference">(+NaNkg)</strong>
+            <p id="daily_ratio">Waste ratio: NaN</p>
+            <p id="daily_average">Average daily: NaN kg</p>
             <div>
                 <button class="btnstyle2">Download as PNG</button>
                 <button class="btnstyle3">Download as PDF</button>
@@ -41,9 +40,9 @@
         <image src="/image_sources/weekly.png" class="weeklyimg"></image>
         <div class="weeklytext">
             <h1>Weekly</h1>
-            <p>This week: NaN kg <strong>(+NaNkg)</strong></p>
-            <p>Total: NaN kg</p>
-            <p>Average weekly: NaN kg</p>
+            <span id="weekly_now">This week: NaN kg </span> <strong id="weekly_difference">(+NaNkg)</strong>
+            <p id="weekly_ratio">Waste ratio: NaN kg</p>
+            <p id="weekly_average">Average weekly: NaN kg</p>
             <div>
                 <button class="btnstyle2">Download as PNG</button>
                 <button class="btnstyle3">Download as PDF</button>
@@ -53,9 +52,9 @@
     <div class="monthly" id="monthly">
         <div class="monthlytext">
             <h1>Monthly</h1>
-            <p>This month: NaN kg <strong>(+NaNkg)</strong></p>
-            <p>Total: NaN kg</p>
-            <p>Average monthly: NaN kg</p>
+            <span id="monthly_now">This month: NaN kg </span> <strong id="monthly_difference">(+NaNkg)</strong>
+            <p id="monthly_ratio">Waste ratio: NaN kg</p>
+            <p id="monthly_average">Average monthly: NaN kg</p>
             <div>
                 <button class="btnstyle2">Download as PNG</button>
                 <button class="btnstyle3">Download as PDF</button>
@@ -74,13 +73,4 @@
         <button class="homebtn" id="homeBtn">Home</button>
     </div>
 </body>
-<script>
-    document.getElementById('homeBtn').onclick = function() {
-        window.location.href = '/page_analysis/analysis.html';
-    };  
-    ["daily","weekly","monthly"].forEach((item) => {
-        document.getElementById(`${item}_btn`).onclick = () => {
-        window.location.href = `food.html#${item}`
-    } })
-</script>
 </html>
