@@ -30,3 +30,9 @@ export async function getData(location) {
         return {"Status":false};
     }
 } 
+
+export async function getDataList(location,number) {
+    let getList_ref = ref(db,location)
+    let return_data = await getList_ref.orderByKey().limitToLast(number).once('value');
+    return return_data
+}
