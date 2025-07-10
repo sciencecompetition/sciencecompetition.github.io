@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Check if analysis.html exists and print first 10 lines
         run: |
-          if [ -f .page_analysis/analysis.html ]; then
+          if [ -f page_analysis/analysis.html ]; then
             echo "analysis.html exists!"
             head -n 10 page_analysis/analysis.html
           else
@@ -25,7 +25,7 @@ jobs:
       # 2. Inject Firebase config as 'firebaseConfig'
       - name: Add Firebase Config
         run: |
-          CONFIG_ESCAPED=$(echo '${{ secrets.FIREBASE_CONFIG }}'
+          CONFIG_ESCAPED=$(echo '${{ secrets.FIREBASE_CONFIG }}')
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>const API_key = \"$CONFIG_ESCAPED\";</script>|g" page_analysis/analysis.html
       # 3. Deploy to GitHub Pages
       - name: Deploy
