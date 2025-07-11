@@ -32,7 +32,7 @@ export async function getData(location) {
 }
 
 export async function getDataList(type, start_num, end_num) {
-    const getList_ref = ref(db,type)
+    const getList_ref = ref(db,type) // type is the food type, start_num and end_num are dates
     const getList_query = query(getList_ref, orderByKey(), startAt(start_num), endAt(end_num))
     const snapshot = await get(getList_query)
     let return_list = [];
