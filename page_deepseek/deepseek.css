@@ -1,9 +1,8 @@
 * {
     background-color: #F5F9FF;
     font-family: "Instrument Sans";
+    font-size: 24px;
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 .deepseekwelcometext {
@@ -18,39 +17,56 @@
     justify-content: right;
 }
 .deepseekimg {
-    width: 263px;
-    min-height: 263px;
+    height: 56px;
+    width: 56px;
+    background-color: #FFFFFF;
+    border-radius: 28px;
+    border: 1px solid rgba(37, 150, 190,70%);
+    object-fit: contain;
 }
 
-.chatbubble {
+.chatbox {
     border-radius: 20px;
-    border: 1px solid black;
+    border: transparent;
     height: auto;
-    min-height: 263px;
-    min-width: 50%;
-    padding: 20px;
-    align-items: center;
+    margin-bottom: 24px;
+    align-items: left;
     display: flex;
-    justify-content: center;
-    text-align: center;
+    justify-content: left;
 }
 
-.userinput {
-    width: 70%;
-    padding: 20px;
+.chatbox_parent {
+    height:402px;
+    padding:0px;
+    margin-top:0px;
+    margin-bottom:16px;
+    overflow-y: auto;
+}
+
+.user_inputbox {
+    width: 629px;
+    height: 56px;
     border-radius: 20px;
+    background-color: #EEEEEE;
+    text-align:left;
 }
 
 .sendButton {
-    width: 30%;
-    padding: 20px;
-    border-radius: 20px;
+    width: 56px;
+    padding: 16px;
+    border-radius: 28px;
+    height:56px;
+    background-image: url("/image_sources/submit.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* or cover, depending on your needs */
+    border-color: transparent;
 }
 
-.userinputverygood {
+.user_input {
     display: flex;
     align-items: center;
-
+    margin-bottom: 0px;
 }
 
 .homeBtn {
@@ -59,7 +75,23 @@
     width: 100%;
     border-radius: 20px;
     border: none;
-    font-size: 40px;
-    padding: 10px;
-    margin-top: 20px;
+    font-size: 30px;
+    height:56px;
+    margin-top: 8px;
+}
+
+h1 {
+    margin-top: 0px;
+    margin-bottom: 32px;
+    font-size:60px;
+    font-weight:900px;
+}
+
+.message {
+    text-align:left;
+    border: 1.3px solid black;
+    border-radius: 8px;
+    padding: 8px;
+    margin-left: 8px;
+    margin-bottom:0px;
 }
