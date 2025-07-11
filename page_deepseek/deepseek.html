@@ -10,21 +10,15 @@
 </head>
 <body>
     <h1>AI Assistant</h1>
-    <div class="deepseekwelcometext">
-        <img src="/image_sources/deepseek-logo-01.png" class="deepseekimg" id="deepseekimg"></img>
-        <div class="chatbubble">
-            <p>Welcome, Chan Hoosun Shui Yeung! I am Deepseek! I will answer all your questions about food waste management</p>
+    <div class="chatbox_parent">
+        <div class="chatbox">
+            <img src="/image_sources/deepseek-logo-02.png" alt="" class="deepseekimg">
+            <span class="message">Hello, I am deepseek. You can ask me questions about food waste, and you can choose to send your food waste data to me by clicking the checkbox above the input box.</span>
         </div>
     </div>
-    <div class="usertext">
-        <div class="chatbubble">
-            <p>What is food waste?</p>
-        </div>
-        <img src="/image_sources/deepseek-logo-01.png" class="deepseekimg"></img>
-    </div>
-    <div class="userinputverygood">
-        <input type="text" id="userInput" placeholder="Type your question here..." class="userinput">
-        <button id="sendButton" class="sendButton">Send</button>
+    <div class="user_input">
+        <input type="text" id="user_inputbox" placeholder="  Type your question here..." class="user_inputbox">
+        <button id="sendButton" class="sendButton">   </button>
     </div>
     <button class="homeBtn" id="homeBtn">Home</button>
     <script>
@@ -32,5 +26,6 @@
             window.location.href = '/page_analysis/analysis.html';
         });
     </script>
+    <script src="deepseek.js"></script>
 </body>
 </html>
