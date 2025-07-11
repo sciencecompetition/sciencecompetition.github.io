@@ -2,7 +2,7 @@ name: Stupid, get the API_key need so long time
 
 on:
   push:
-    branches: ["analysis-page_code"]
+    branches: ["food-page_code"]
 
 jobs:
   deploy:
@@ -28,6 +28,7 @@ jobs:
         run: |
           CONFIG_ESCAPED=$(echo '${{ secrets.FIREBASE_CONFIG }}')
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_analysis/analysis.html
+          sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_food/food.html
 
       # 4. Deploy to GitHub Pages
       - name: Deploy
