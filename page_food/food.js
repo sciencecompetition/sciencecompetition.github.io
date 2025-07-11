@@ -19,7 +19,7 @@ function defDate(numberOfDaysBefore) {
     return return_date_raw;
 }
 
-const raw_date = new Date("2025-6-26");
+const raw_date = new Date("2025-6-27");
 const full_date = stringifyDate(raw_date)
 const week_ago = stringifyDate(defDate(6))
 const month_ago = stringifyDate(defDate(29))
@@ -29,7 +29,8 @@ const food_type = queryParameters.get('food');
 const title_ele = document.getElementById("title");
 const photo = document.querySelector(".foodimg");
 const waste_today_ele = document.getElementById("waste_today");
-const waste_total_ele = document.getElementById("waste_total")
+const waste_total_ele = document.getElementById("waste_total");
+const buy_Object = await getData(`${food_type}_buy`)//whole food data on buying
 title_ele.innerText = food_type;
 photo.src = `/image_sources/${food_type}.png`
 
@@ -135,7 +136,6 @@ getData(food_type).then(async (return_value) => {
             "label":`${food_type} bought (kg)`
         }
     ]
-    console.log(monthly_dataset)
     monthly_chart.src=generate_chart (
         "bar",
         ["上月","本月"],
@@ -143,6 +143,13 @@ getData(food_type).then(async (return_value) => {
         `${food_type} wasted in the last 2 months`
     )
     /////////////////////////////////////////////////////////////////////////////////
+    //AI suggestion part
+    let AI_suggestion_ele = document.getElementById("AI_suggestion")
+    document.getElementById("food_type").innerText = food_type;
+    let formatted_waste = formatData(data_Object)
+    let formatted_buy = formatData(buy_Object["data"])
+    let AI_suggestion = await predict(formatted_waste,formatted_buy)
+    AI_suggestion_ele.innerText = round(week_buy.reverse()[0]+AI_suggestion["result"])
 } );
 
 function round(number) {
@@ -179,9 +186,26 @@ function generate_chart(type,label,datasets,title) {
     return return_url;
 }
 
-//AI suggestion part
-AI_suggestion.ele = document.getElementById("AI_suggestion")
-document.getElementById("food_type").innerText = food_type
+function formatData(object) {
+    let returnList=[];
+    let keys = Object.keys(object);
+    keys.forEach((key) => {
+        returnList.push([key,object[key]])
+    })
+    return returnList.reverse()
+}
+
+async function predict(waste,buy) {
+    const encodedWaste = encodeURIComponent(JSON.stringify(waste));
+    const encodedBuy = encodeURIComponent(JSON.stringify(buy));
+    let response = await fetch(`https://trusted-pony-deadly.ngrok-free.app/predict?waste_data=${encodedWaste}&buy_data=${encodedBuy}&food=Meatball`, {method: "GET",
+        headers: {
+            'ngrok-skip-browser-warning':"super!!!"
+        }
+    })
+    response = await response.json()
+    return response
+}
 
 //handle jumping and home button
 document.getElementById('homeBtn').onclick = function() {
