@@ -3,9 +3,13 @@ body {
     background-color: #F9F5FF;
 }
 
+.welcomehoo {
+    font-size: 50px;
+}
 .strong1 {
     font-weight: bold;
     color: red;
+    font-size: 45px;
 }
 
 .welcometext {
@@ -13,8 +17,10 @@ body {
 }
 
 .deepseekimg {
-    height: 163px;
-    width: 163px;
+    height: 80px;
+    width: auto;
+    max-height: 161px;
+    max-width: 161px;
 }
 
 .deepseek, .chilli, .corn, .meatball{
@@ -24,25 +30,31 @@ body {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: normal;
 }
 
 .chilliimg {
-    width: 161px;
-    height: 161px;
+    height: 80px;
+    width: auto;
+    max-width: 161px;
+    max-height: 161px;
     border-radius: 20px;
 }
 
 .cornimg {
-    width: 161px;
-    height: 114px;
+    height: 80px;
+    max-width: 161px;
+    max-height: 114px;
     border-radius: 20px;
 }
 
 .meatballimg {
-    width: 161px;
-    height: 114px;
+    height: 80px;
+    width: auto;
+    max-width: 161px;
+    max-height: 114px;
+    border-radius: 20px;
 }
 
 .chilliimg:hover, .cornimg:hover, .meatballimg:hover, .deepseekimg:hover {
@@ -77,6 +89,8 @@ h1 {
     padding: 10px;
     margin: 20px;
 }
+
+
 
 .btnstyle2 {
     border-radius: 20px;
@@ -118,4 +132,8 @@ h1 {
 .btnstyle1:hover {
     background-color: #47a3c8;
     cursor:pointer;
+}
+
+.btnstyle1:active {
+    background-color: red;
 }

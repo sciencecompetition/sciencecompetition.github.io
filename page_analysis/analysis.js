@@ -112,3 +112,5 @@ chart_types.forEach((type) => {
         }
         })
 })
+
+console.log("Hello world!");
