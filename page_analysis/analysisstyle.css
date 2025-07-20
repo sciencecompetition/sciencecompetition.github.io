@@ -68,7 +68,7 @@ h1 {
     margin-top: 20px;
 }
 
-.barchartimg {
+.barchartimg, .piechartimg, .linechartimg {
     width: 50%;
     height: auto;
 }
