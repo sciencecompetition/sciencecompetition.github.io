@@ -24,10 +24,8 @@
     color: white;
     border: none;
     background-color: #229BCC;
-    margin-top: 10px;
-    margin-bottom: 10px;
     padding: 10px;
-    margin: 20px;
+    margin: 5px;
 }
 
 .btnstyle2 {
@@ -36,11 +34,9 @@
     width: 80%;
     color: white;
     background-color: #6379F4;
-    margin-top: 10px;
-    margin-bottom: 10px;
     border: none;
     padding: 10px;
-    margin: 20px;
+    margin: 5px;
 }
 
 .btnstyle3 {
@@ -49,16 +45,15 @@
     width: 80%;
     color: white;
     background-color: #6D5DD3;
-    margin-top: 10px;
-    margin-bottom: 10px;
     border: none;
     padding: 10px;
-    margin: 20px;
+    margin: 5px;
 }
 
 .daily, .weekly, .monthly, .lightgbm{
     display: flex;
     align-items: center;
+    margin-left: 10px;
 }
 
 .dailyimg, .weeklyimg, .monthlyimg, .lgbmimg {
@@ -83,4 +78,8 @@
 
 .lgbmtext {
     margin-left:24px;
+}
+
+p, span, strong {
+    font-size: 30px;
 }

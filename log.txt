@@ -20,5 +20,3 @@ ah i need to go outside, later work
 9/7/2025 18:30 PM Nomis Hui. Start working
 9/7/2025 19:16 PM Nomis Hui. Complete analysis page
 9/7/2025 19:40 PM Nomis Hui. Complete deepseek page
-
-14/7/2025 19:55 PM Nomis Hui. Complete recaptcha validation
