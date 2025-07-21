@@ -43,5 +43,7 @@ jobs:
       # 5. Print the secrets hash
       - name: print the secrets
         run: |
+          echo "firebase first"
           echo -n "${{ secrets.FIREBASE_CONFIG }}" | sha256sum
+          echo "now deepseek"
           echo -n "${{ secrets.DEEPSEEK_CONFIG }}" | sha256sum
