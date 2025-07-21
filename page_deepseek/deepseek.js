@@ -30,6 +30,7 @@ textbox.style.width = (window.innerWidth - 56) + "px";
 chatbox_parent.style.height = (window.innerHeight - 263) + "px";
 
 console.log(authtoken)
+console.log("hello")
 
 window.addEventListener("resize",() => {
     textbox.style.width = (window.innerWidth - 56) + "px";

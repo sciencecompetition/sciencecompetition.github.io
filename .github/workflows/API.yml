@@ -27,11 +27,10 @@ jobs:
       - name: Add Firebase Config
         run: |
           CONFIG_ESCAPED=$(echo '${{ secrets.FIREBASE_CONFIG }}')
-          CONFIG_ESCAPED2=$(echo '${{ secrets.DEEPSEEK_CONFIG }}')
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_analysis/analysis.html
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_food/food.html
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_deepseek/deepseek.html
-          sed -i "s|deepseek_authtoken|\"$CONFIG_ESCAPED2\"|g" page_deepseek/deepseek.js
+          sed -i "s|const authtoken = \"deepseek_authtoken\"|const authtoken = \"${{ secrets.DEEPSEEK_CONFIG }}\"|g" page_deepseek/deepseek.js
 
       # 4. Deploy to GitHub Pages
       - name: Deploy
