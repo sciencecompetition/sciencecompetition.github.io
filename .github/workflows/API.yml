@@ -42,5 +42,6 @@ jobs:
 
       # 5. Print the secrets hash
       - name: print the secrets
-        run: echo -n "${{ secrets.FIREBASE_CONFIG }}" | sha256sum
+        run: |
+          echo -n "${{ secrets.FIREBASE_CONFIG }}" | sha256sum
           echo -n "${{ secrets.DEEPSEEK_CONFIG }}" | sha256sum
