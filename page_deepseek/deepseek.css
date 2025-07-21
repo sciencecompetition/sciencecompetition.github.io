@@ -2,7 +2,12 @@
     background-color: #F5F9FF;
     font-family: "Instrument Sans";
     font-size: 24px;
-    text-align: center;
+}
+
+body {
+    padding: 5px;
+    margin: 0px;
+    width:100%;
 }
 
 .deepseekwelcometext {
@@ -16,7 +21,7 @@
     align-items: center;
     justify-content: right;
 }
-.deepseekimg {
+.deepseekimg, .userimg {
     height: 56px;
     width: 56px;
     background-color: #FFFFFF;
@@ -33,6 +38,8 @@
     align-items: left;
     display: flex;
     justify-content: left;
+    width: 100%;
+    max-width: 100%;
 }
 
 .chatbox_parent {
@@ -40,11 +47,13 @@
     padding:0px;
     margin-top:0px;
     margin-bottom:16px;
+    margin-left:0px;
     overflow-y: auto;
+    width: calc(100% - 10px);
 }
 
 .user_inputbox {
-    width: 629px;
+    width: calc(100vw - 10px);
     height: 56px;
     border-radius: 20px;
     background-color: #EEEEEE;
@@ -67,12 +76,13 @@
     display: flex;
     align-items: center;
     margin-bottom: 0px;
+    width: calc(100% - 10px);
 }
 
 .homeBtn {
     background-color: #229BCC;
     color: white;
-    width: 100%;
+    width: calc(100vw - 10px);
     border-radius: 20px;
     border: none;
     font-size: 30px;
@@ -82,16 +92,53 @@
 
 h1 {
     margin-top: 0px;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     font-size:60px;
     font-weight:900px;
+    text-align:center;
 }
 
-.message {
+.message, .message_user {
     text-align:left;
     border: 1.3px solid black;
     border-radius: 8px;
     padding: 8px;
-    margin-left: 8px;
     margin-bottom:0px;
+    max-width: calc(100vw - 100px); /* Account for image width + margins */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    padding-right: 8px;
+    min-width:40px;
+}
+
+.message {
+    margin-left: 8px;
+}
+
+.message_user {
+    margin-right: 8px;
+}
+
+.include_data_label {
+    font-size: 12px;
+    line-height: 1.2; /* Adjust based on your design */
+    margin-top: 3px; /* Remove any default margins */
+    padding: 0px; /* Remove any default padding */
+}
+
+.include_data {
+    display:flex;
+    flex-direction: column;
+    width: 80px;
+    align-items: center;
+}
+
+.include_data input {
+    background-color: #F5F9FF;
+    border: 1px solid #111111;
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+    margin: 0px;
 }

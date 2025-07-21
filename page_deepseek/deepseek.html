@@ -6,6 +6,9 @@
     <title>Deepseek</title>
     <link rel="stylesheet" href="deepseek.css">
     <script src="/checkpc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- FIREBASE_CONFIG -->
+    <script src="/firebase.js" type="module"></script>
     <link href='https://fonts.googleapis.com/css?family=Instrument Sans' rel='stylesheet'>
 </head>
 <body>
@@ -13,11 +16,15 @@
     <div class="chatbox_parent">
         <div class="chatbox">
             <img src="/image_sources/deepseek-logo-02.png" alt="" class="deepseekimg">
-            <span class="message">Hello, I am deepseek. You can ask me questions about food waste, and you can choose to send your food waste data to me by clicking the checkbox above the input box.</span>
+            <span class="message" style="background-color: #D5D5D5;">Hello, I am deepseek. You can ask me questions about food waste, and you can choose to send your food waste data to me by clicking the checkbox next to the input box.</span>
         </div>
     </div>
     <div class="user_input">
         <input type="text" id="user_inputbox" placeholder="  Type your question here..." class="user_inputbox">
+        <div class="include_data">
+            <input type="checkbox" id="include_data_checkbox" name="include_data">
+            <label for="include_data" class="include_data_label">Include <br>my data</label>
+        </div>
         <button id="sendButton" class="sendButton">   </button>
     </div>
     <button class="homeBtn" id="homeBtn">Home</button>
@@ -26,6 +33,6 @@
             window.location.href = '/page_analysis/analysis.html';
         });
     </script>
-    <script src="deepseek.js"></script>
+    <script type="module" src="deepseek.js"></script>
 </body>
 </html>

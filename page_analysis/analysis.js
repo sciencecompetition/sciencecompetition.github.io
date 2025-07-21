@@ -1,7 +1,7 @@
 import { getData, getDataList } from "/firebase.js"
 
 const today_waste_ele = document.querySelector(".strong1");
-const raw_date = new Date("2025-6-26");
+const raw_date = new Date("2025-6-27");
 const raw_previous_date = new Date(raw_date);
 const food_types = ["Chilli","Corn","Meatball"];
 const chart_types = ["bar","pie","line"]
@@ -37,6 +37,7 @@ function refresh_dataObject() {
         food_types.forEach((item) => {
             total += waste_dataObject[item]["data"]
         })
+        total = Math.round(total*100)/100;
         today_waste_ele.innerHTML = total.toString();
         updateChart('pie');
     });
@@ -81,6 +82,8 @@ async function updateChart(type) {
         input_dataset = await Promise.all(
             food_types.map(async (food) => {
                 const return_value = await getDataList(food, previous_date, full_date);
+                console.log(`return value for ${type}`)
+                console.log(return_value)
                 return {
                     data: return_value,
                     label: food
