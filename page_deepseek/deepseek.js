@@ -19,7 +19,7 @@ const chatbox_parent = document.querySelector(".chatbox_parent");
 const home_btn = document.getElementById("homeBtn");
 const checkbox = document.getElementById("include_data_checkbox");
 const deepseek_url = "https://router.huggingface.co/fireworks-ai/inference/v1/chat/completions";
-const authtoken = "very stupid deepseek authtoken for huggingface" // for injection in the YAML, make the comment super long for easy identification
+const authtoken = "deepseek_authtoken" // for injection in the YAML, make the comment super long for easy identification
 const raw_date = new Date("2025-6-27");
 const month_before_raw = new Date(raw_date);
 month_before_raw.setDate(raw_date.getDate() - 29);
@@ -28,6 +28,8 @@ const month_before = stringifyDate(month_before_raw);
 const key_list = ["Chilli","Corn","Meatball","Chilli_buy","Corn_buy","Meatball_buy"];
 textbox.style.width = (window.innerWidth - 56) + "px";
 chatbox_parent.style.height = (window.innerHeight - 263) + "px";
+
+console.log(authtoken)
 
 window.addEventListener("resize",() => {
     textbox.style.width = (window.innerWidth - 56) + "px";
