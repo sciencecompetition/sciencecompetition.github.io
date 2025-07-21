@@ -30,7 +30,7 @@ jobs:
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_analysis/analysis.html
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_food/food.html
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_deepseek/deepseek.html
-          sed -i "s|//injection|const authtoken = \"${{ secrets.DEEPSEEK_CONFIG }}\"|g" page_deepseek/deepseek.js
+          sed -i "s|const authtoken = ""|const authtoken = \"${{ secrets.DEEPSEEK_CONFIG }}\"|g" page_deepseek/deepseek.js
 
       # 4. Deploy to GitHub Pages
       - name: Deploy
