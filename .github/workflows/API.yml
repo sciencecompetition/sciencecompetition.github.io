@@ -26,12 +26,12 @@ jobs:
       # 3. Inject Firebase config as 'firebaseConfig'
       - name: Add Firebase Config
         run: |
-          CONFIG_ESCAPED=$(echo '${{ secrets.FIREBASE_CONFIG }}')
-          CONFIG_ESCAPED2=$(echo '${{ secrets.DEEPSEEK_CONFIG }}')
+          CONFIG_ESCAPED=$(echo '${{ secrets.FIREBASE_CONFIG }}' | sed 's/[\&/]/\\&/g')
+          CONFIG_ESCAPED2=$(echo '${{ secrets.DEEPSEEK_CONFIG }}' | sed 's/[\&/]/\\&/g')
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_analysis/analysis.html
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_food/food.html
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_deepseek/deepseek.html
-          sed -i "s|<!-- DEEPSEEK_CONFIG -->|<script>window.deepseek_API_key = \"$CONFIG_ESCAPED2\";</script>|g" page_deepseek/deepseek.html
+          sed -i "s|<!-- DEEPSEEK_CONFIG -->|<script>const deepseek_API_key = \"$CONFIG_ESCAPED2\"; console.log(deepseek_API_key)</script>|g" page_deepseek/deepseek.html
 
       # 4. Deploy to GitHub Pages
       - name: Deploy
