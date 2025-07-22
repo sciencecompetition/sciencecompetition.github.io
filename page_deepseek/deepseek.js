@@ -28,8 +28,9 @@ const month_before = stringifyDate(month_before_raw);
 const key_list = ["Chilli","Corn","Meatball","Chilli_buy","Corn_buy","Meatball_buy"];
 textbox.style.width = (window.innerWidth - 56) + "px";
 chatbox_parent.style.height = (window.innerHeight - 263) + "px";
-//inject
-const authtoken = "Bearer hf_"+deepseek_API_key;
+
+const authtoken = "Bearer hf_"+window.deepseek_API_key;
+console.log(authtoken)
 
 console.log("hello")
 
