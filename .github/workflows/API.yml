@@ -30,7 +30,7 @@ jobs:
           CONFIG_ESCAPED2=$(echo '${{ secrets.DEEPSEEK_CONFIG }}' | sed 's/[\&/]/\\&/g')
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_analysis/analysis.html
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_food/food.html
-          sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_deepseek/deepseek.html
+          sed -i "s|placeholderabcdefg|$CONFIG_ESCAPED|g" page_deepseek/deepseek.js
           echo -n \"$CONFIG_ESCAPED2\" | sha256sum
 
       - name: Add Deepseek Config

@@ -26,10 +26,11 @@ month_before_raw.setDate(raw_date.getDate() - 29);
 const full_date = stringifyDate(raw_date);
 const month_before = stringifyDate(month_before_raw);
 const key_list = ["Chilli","Corn","Meatball","Chilli_buy","Corn_buy","Meatball_buy"];
+const deepseek_API_key = "placeholderabcdefg"
 textbox.style.width = (window.innerWidth - 56) + "px";
 chatbox_parent.style.height = (window.innerHeight - 263) + "px";
 
-const authtoken = "Bearer hf_"+window.deepseek_API_key;
+const authtoken = "Bearer hf_"+deepseek_API_key;
 console.log(authtoken)
 
 console.log("hello")
@@ -126,7 +127,7 @@ submit_btn.addEventListener('click', async () => {
 
 function convertMarkdown(text) {
     let temporary_ele = document.createElement("div");
-    let skipped_line = text.replace("\\n","<br>");
+    let skipped_line = text.replace(/\\n/g,"<br>");
     skipped_line = skipped_line.replace(/#/g,""); //clear the para markdown stuff, which is the #
     console.log(skipped_line)
     temporary_ele.innerHTML = marked.parse(skipped_line);
@@ -157,6 +158,8 @@ async function loadData() {
     
     return upload_data;
 }
+
+console.log(await getDataList("Chilli","20250625","20250626"))
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //just for testing
