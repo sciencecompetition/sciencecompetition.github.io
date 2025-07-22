@@ -17,7 +17,7 @@ jobs:
         run: |
           if [ -f page_deepseek/deepseek.html ]; then
             echo "deepseek.html exists!"
-            head -n 10 page_deepseek/deepseek.html
+            head -n 11 page_deepseek/deepseek.html
           else
             echo "deepseek.html NOT found!"
             exit 1
@@ -39,7 +39,7 @@ jobs:
           sed -i "s|placeholderabcdefg|$CONFIG_ESCAPED|g" page_deepseek/deepseek.js
           echo -n \"$CONFIG_ESCAPED2\" | sha256sum
 
-          if grep -q "%%API_KEY%%" config.js; then
+          if grep -q "placeholderabcedfg" page_deepseek/deepseek.js; then
             echo "❌ ERROR: API_KEY was NOT injected!"
           else
             echo "Success"
