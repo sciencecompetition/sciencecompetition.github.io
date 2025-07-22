@@ -39,7 +39,7 @@ jobs:
           sed -i "s|placeholderabcdefg|$CONFIG_ESCAPED|g" page_deepseek/deepseek.js
           echo -n \"$CONFIG_ESCAPED2\" | sha256sum
 
-          if grep -q "placeholderabcedfg" page_deepseek/deepseek.js; then
+          if grep -q "full_date" page_deepseek/deepseek.js; then
             echo "❌ ERROR: API_KEY was NOT injected!"
           else
             echo "Success"
