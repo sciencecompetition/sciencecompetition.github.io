@@ -60,6 +60,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
+          force_orphan: true # 🔥 Nuclear option: Wipes old files
+          keep_files: false # 🔥 Deletes everything before redeploy
 
       # 5. Print the secrets hash
       - name: print the secrets
