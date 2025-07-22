@@ -45,6 +45,16 @@ jobs:
             echo "API Key starts with: ${CONFIG_ESCAPED2:0:3}..."
           fi
 
+      - name: Check if deepseek.js exists and print first 30 lines
+        run: |
+          if [ -f page_deepseek/deepseek.js ]; then
+            echo "deepseek.js exists!"
+            head -n 30 page_deepseek/deepseek.js
+          else
+            echo "deepseek.js NOT found!"
+            exit 1
+          fi
+
       # 4. Deploy to GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
