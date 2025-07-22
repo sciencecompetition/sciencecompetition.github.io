@@ -30,7 +30,7 @@ const deepseek_API_key = "placeholderabcdefg"
 textbox.style.width = (window.innerWidth - 56) + "px";
 chatbox_parent.style.height = (window.innerHeight - 263) + "px";
 
-const authtoken = "Bearer hf_"+deepseek_API_key;
+const authtoken = "Bearer hf_"+deepseek_API_key
 console.log(authtoken)
 
 console.log("hello")
