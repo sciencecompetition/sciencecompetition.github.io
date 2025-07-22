@@ -43,7 +43,7 @@ jobs:
             echo "❌ ERROR: API_KEY was NOT injected!"
           else
             echo "Success"
-            echo "API Key starts with: ${API_KEY:0:3}..."
+            echo "API Key starts with: ${CONFIG_ESCAPED2:0:3}..."
           fi
 
       # 4. Deploy to GitHub Pages
