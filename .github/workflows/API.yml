@@ -63,6 +63,11 @@ jobs:
             exit 1
           fi
 
+      - name: Deploy Key Endpoint
+        run: |
+          mkdir -p api/get-key
+          echo "${{ secrets.DEEPSEEK_CONFIG }}" > api/get-key/index.html
+
       # 4. Deploy to GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

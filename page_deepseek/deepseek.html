@@ -34,6 +34,18 @@
             window.location.href = '/page_analysis/analysis.html';
         });
     </script>
-    <script type="module" src="deepseek.js"></script>
+    <script>
+    // Fetch key from GitHub Secrets at runtime
+    fetch('/get-key')
+        .then(res => res.text())
+        .then(key => {
+        window.deepseek_API_key = key;
+        // NOW load your JS
+        const script = document.createElement('script');
+        script.src = 'deepseek.js';
+        script.type = "module"
+        document.body.appendChild(script);
+        });
+    </script>
 </body>
 </html>
