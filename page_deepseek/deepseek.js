@@ -26,7 +26,7 @@ month_before_raw.setDate(raw_date.getDate() - 29);
 const full_date = stringifyDate(raw_date);
 const month_before = stringifyDate(month_before_raw);
 const key_list = ["Chilli","Corn","Meatball","Chilli_buy","Corn_buy","Meatball_buy"];
-const deepseek_API_key = "placeholderabcdefg"
+const deepseek_API_key = window.deepseek_API_key // "placeholderabcdefg"
 textbox.style.width = (window.innerWidth - 56) + "px";
 chatbox_parent.style.height = (window.innerHeight - 263) + "px";
 
