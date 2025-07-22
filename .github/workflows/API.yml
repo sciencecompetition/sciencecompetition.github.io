@@ -15,11 +15,11 @@ jobs:
       # 2. Check if analysis.html exists and print first 10 lines
       - name: Check if analysis.html exists and print first 10 lines
         run: |
-          if [ -f page_analysis/analysis.html ]; then
-            echo "analysis.html exists!"
-            head -n 10 page_analysis/analysis.html
+          if [ -f page_deepseek/deepseek.html ]; then
+            echo "deepseek.html exists!"
+            head -n 10 page_deepseek/deepseek.html
           else
-            echo "analysis.html NOT found!"
+            echo "deepseek.html NOT found!"
             exit 1
           fi
 
@@ -31,6 +31,11 @@ jobs:
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_analysis/analysis.html
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_food/food.html
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_deepseek/deepseek.html
+          echo -n \"$CONFIG_ESCAPED2\" | sha256sum
+
+      - name: Add Deepseek Config
+        run: |
+          CONFIG_ESCAPED2=$(echo '${{ secrets.DEEPSEEK_CONFIG }}' | sed 's/[\&/]/\\&/g')
           sed -i "s|<!-- DEEPSEEK_CONFIG -->|<script>const deepseek_API_key = \"$CONFIG_ESCAPED2\"; console.log(deepseek_API_key)</script>|g" page_deepseek/deepseek.html
           echo -n \"$CONFIG_ESCAPED2\" | sha256sum
 
