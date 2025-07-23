@@ -77,7 +77,7 @@ function addChatbox(user, message) {
 }
 
 async function sendMessage(message,data) {
-    const ask_message = `${message}${data["include"] ? "\nrefer to data:\n" : ""}${data["data"]}`
+    const ask_message = `${message}\nanswer one paragraph only\n${data["include"] ? "\nrefer to data:\n" : ""}${data["data"]}`
     console.log(ask_message)
     const payload = {
         "messages":[{
@@ -158,7 +158,7 @@ async function loadData() {
             console.log(currentDate);
         });
         
-        upload_data[key_name] = data_object;
+        upload_data[key_name.includes("_buy") ? `${key_name} wastage record` : `${key_name} (purchase record)`] = data_object;
     }));
     
     return upload_data;
