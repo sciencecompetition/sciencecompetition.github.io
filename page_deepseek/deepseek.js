@@ -78,6 +78,7 @@ function addChatbox(user, message) {
 
 async function sendMessage(message,data) {
     const ask_message = `${message}${data["include"] ? "\nrefer to data:\n" : ""}${data["data"]}`
+    console.log(ask_message)
     const payload = {
         "messages":[{
             "role":"user",
@@ -113,7 +114,9 @@ submit_btn.addEventListener('click', async () => {
     const data = {};
     if (checkbox.checked) {
         data["include"] = true;
-        data["data"] = await loadData();
+        const object_data = await loadData();
+        console.log('here is hte object data')
+        data["data"] = JSON.stringify(object_data)
         console.log(data)
         console.log("needa send the data ah stupid")
     } else {
@@ -123,7 +126,6 @@ submit_btn.addEventListener('click', async () => {
     let response  = await sendMessage(textbox.value,data);
     response = response["success"] ? response["response"]["choices"][0]["message"]["content"] : response["response"];
     addChatbox("deepseek",convertMarkdown(response));
-    
     textbox.value = "";
 })
 
