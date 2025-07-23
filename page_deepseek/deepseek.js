@@ -113,7 +113,9 @@ submit_btn.addEventListener('click', async () => {
     const data = {};
     if (checkbox.checked) {
         data["include"] = true;
-        data["data"] = loadData();
+        data["data"] = await loadData();
+        console.log(data)
+        console.log("needa send the data ah stupid")
     } else {
         data["include"] = false;
         data["data"] = "";
