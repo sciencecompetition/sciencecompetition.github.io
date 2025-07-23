@@ -116,7 +116,8 @@ submit_btn.addEventListener('click', async () => {
         data["include"] = true;
         const object_data = await loadData();
         console.log('here is hte object data')
-        data["data"] = JSON.stringify(object_data)
+        let object_string = JSON.stringify(object_data)
+        data["data"] = object_string
         console.log(data)
         console.log("needa send the data ah stupid")
     } else {
