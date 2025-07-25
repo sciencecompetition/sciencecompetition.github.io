@@ -2,6 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/fireba
 import { getDatabase, ref, set, get, query, orderByKey, startAt, endAt } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
 
 const API_key = window.firebase_API_key;
+console.log(API_key)
 const firebaseConfig = {
   apiKey: API_key,
   authDomain: "food-waste-record.firebaseapp.com",
