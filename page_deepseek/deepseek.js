@@ -124,10 +124,11 @@ submit_btn.addEventListener('click', async () => {
         data["include"] = false;
         data["data"] = "";
     }
-    let response  = await sendMessage(textbox.value,data);
+    const question = textbox.value
+    textbox.value = "";
+    let response  = await sendMessage(question,data);
     response = response["success"] ? response["response"]["choices"][0]["message"]["content"] : response["response"];
     addChatbox("deepseek",convertMarkdown(response));
-    textbox.value = "";
 })
 
 function convertMarkdown(text) {
@@ -158,7 +159,7 @@ async function loadData() {
             console.log(currentDate);
         });
         
-        upload_data[key_name.includes("_buy") ? `${key_name} wastage record` : `${key_name} (purchase record)`] = data_object;
+        upload_data[key_name.includes("_buy") ? `${key_name} (purchase record)` : `${key_name} wastage record`] = data_object;
     }));
     
     return upload_data;
