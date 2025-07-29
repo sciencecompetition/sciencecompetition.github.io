@@ -7,7 +7,7 @@
     font-family: "instrument sans";
     padding-right: 15px;
     padding-left: 15px;
-    font-size: 40px;
+    font-size: 30px;
     margin: -15px;
 }
 
@@ -57,7 +57,7 @@ a {
 
 .login a, .signup a {
     color: white;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .banner div {
