@@ -17,7 +17,10 @@ h1 {
 }
 .login {
     border: 1px solid black;
-    padding: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    padding-top: 8px;
     border-radius: 16px;
 }
 
@@ -122,7 +125,7 @@ h1 {
 
 .gsi-material-button:not(:disabled):active .gsi-material-button-state, 
 .gsi-material-button:not(:disabled):focus .gsi-material-button-state {
-  background-color: #303030;
+  background-color: transparent;
   opacity: 12%;
 }
 
@@ -132,7 +135,7 @@ h1 {
 }
 
 .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
-  background-color: #303030;
+  background-color: transparent;
   opacity: 8%;
 }
 
@@ -143,4 +146,38 @@ h1 {
   width: 100%;
   text-align: center;
   padding: 20px;
+}
+
+.error_div {
+  background-color: rgb(250, 65, 45);
+  display: none;
+  border-radius: 5px;
+  max-width: 365px;
+  margin-bottom: 16px;
+  align-items: center;
+  text-align: center;
+  padding-top: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 16px;
+}
+
+.error_message {
+  background-color: transparent;
+  color: #FFFFFF;
+  font-family: 'Instrument Sans';
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.g-recaptcha {
+  margin-bottom: 16px;
+}
+
+#google {
+  background-color: transparent;
+}
+
+#google:hover {
+  background-color: transparent;
 }

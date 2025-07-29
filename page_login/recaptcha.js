@@ -1,10 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("loginForm");
-    
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Check if reCAPTCHA is loaded
+function check_recaptcha() {
+    // Check if reCAPTCHA is loaded
         if (typeof grecaptcha === 'undefined') {
             alert("CAPTCHA is still loading. Please wait a moment.");
             return;
@@ -20,5 +15,4 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Successful validation → redirect
         window.location.href = '/page_analysis/analysis.html';
-    });
-});
+}
