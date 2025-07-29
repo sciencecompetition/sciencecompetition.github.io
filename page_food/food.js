@@ -1,4 +1,17 @@
 import { getData, getDataList } from "/firebase.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+
+const app = await initializeApp(firebaseConfig);
+const auth = await getAuth(app);
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const user_id = user.uid;
+  } else {
+    window.location.href = "/index.html";
+  }
+});
 
 function stringifyDate(date) {
     const year = date.getFullYear();

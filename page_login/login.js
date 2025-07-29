@@ -3,7 +3,9 @@ import {
   getAuth, 
   signInWithEmailAndPassword, 
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
+  setPersistence,
+  browserSessionPersistence
 } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
 
 const username_input = document.getElementById("username")
@@ -12,6 +14,7 @@ const sign_in_btn = document.getElementById("submit")
 const google_btn = document.getElementById("google")
 const error_div = document.querySelector(".error_div")
 const error_message = document.querySelector(".error_message")
+let can_signin = false;
 const error_message_dict = {
   // General Errors
   'auth/invalid-email': 'Please enter a valid email address.',
@@ -62,8 +65,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// Set this BEFORE any sign-in operations
+setPersistence(auth, browserSessionPersistence)
+  .then(() => {
+    // Now you can sign in
+    can_signin = true;
+  })
+  .catch((error) => {
+    console.error("Persistence error:", error);
+  });
 
 sign_in_btn.addEventListener("click", async ()=> {
+  if (can_signin) {
     const sign_in_result = await sign_in();
     if (sign_in_result.status) {
         error_div.style.display = "none";
@@ -71,15 +84,18 @@ sign_in_btn.addEventListener("click", async ()=> {
     } else {
         sendError(sign_in_result.error)
     }
+  }
 })
 
 google_btn.addEventListener("click", async ()=> {
+  if (can_signin) {
     const sign_in_result = await google_signin()
     if (sign_in_result.status) {
         window.location.href = '/page_analysis/analysis.html';
     } else {
         sendError(sign_in_result.error)
     }
+  }
 })
 
 async function google_signin() {

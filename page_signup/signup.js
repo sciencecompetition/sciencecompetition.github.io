@@ -2,6 +2,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/fireba
 import { 
   getAuth, 
   createUserWithEmailAndPassword,
+  setPersistence,
+  browserSessionPersistence
 } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
 
 const username_input = document.getElementById("username")
@@ -9,6 +11,7 @@ const password_input = document.getElementById("password")
 const error_div = document.querySelector(".error_div")
 const error_message = document.querySelector(".error_message")
 const sign_up_btn = document.getElementById("sign_up_btn")
+let can_signin = false;
 
 const API_key = window.firebase_API_key;
 
@@ -59,7 +62,19 @@ const error_message_dict = {
   'default': 'Login failed. Please try again.'
 };
 
+
+// Set this BEFORE any sign-in operations
+setPersistence(auth, browserSessionPersistence)
+  .then(() => {
+    // Now you can sign in
+    can_signin = true;
+  })
+  .catch((error) => {
+    console.error("Persistence error:", error);
+  });
+
 sign_up_btn.addEventListener("click", async () => {
+  if (can_signin) {
     if (updateButtonColor()) {
         const sign_up_respond = await sign_up();
         if(sign_up_respond["status"]) {
@@ -70,6 +85,7 @@ sign_up_btn.addEventListener("click", async () => {
     } else {
         sendError("Please enter your email and password. Password must include at least 6 characters.")
     }
+  }
 })
 
 async function sign_up() {
