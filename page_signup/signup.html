@@ -12,13 +12,16 @@
     <p>Create an account to enjoy all the services without ads for free!</p>
 
     <p>Username please</p>
-    <input type="text" placeholder="Enter your username" style="width: 400px; height: 40px; border-radius: 16px; border: 1px solid black; padding-left: 10px;"> 
+    <input type="text" placeholder="Enter your username" style="width: 400px; height: 40px; border-radius: 16px; border: 1px solid black; padding-left: 10px;" id="username"> 
     
     <p>Password please</p>
-    <input type="password" placeholder="Enter your password" style="width: 400px; height: 40px; border-radius: 16px; border: 1px solid black; padding-left: 10px;">
-    <div>
-        <button class="create">Create Account</button>
+    <input type="password" placeholder="Enter your password" style="width: 400px; height: 40px; border-radius: 16px; border: 1px solid black; padding-left: 10px;" id="password">
+    <div class="error_div">
+            <span class="error_message">There's an error. Please try later.</span>
+        </div><div>
+        <button class="create" id="sign_up_btn">Create Account</button>
         <p>Already have an account? <a href="/page_login/login.html">Sign in</a></p>
     </div>  
 </body>
+<script src="signup.js" type="module"></script>
 </html>

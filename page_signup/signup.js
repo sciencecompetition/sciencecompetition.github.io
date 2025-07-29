@@ -1,17 +1,30 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
 import { 
   getAuth, 
-  signInWithEmailAndPassword, 
-  GoogleAuthProvider,
-  signInWithPopup
+  createUserWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
 
 const username_input = document.getElementById("username")
 const password_input = document.getElementById("password")
-const sign_in_btn = document.getElementById("submit")
-const google_btn = document.getElementById("google")
 const error_div = document.querySelector(".error_div")
 const error_message = document.querySelector(".error_message")
+const sign_up_btn = document.getElementById("sign_up_btn")
+
+const API_key = window.firebase_API_key;
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCYEoyWgcbPsiNFVd30KYjkshD5AgjF9Bk"/*API_key*/,
+  authDomain: "food-waste-record.firebaseapp.com",
+  databaseURL: "https://food-waste-record-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "food-waste-record",
+  storageBucket: "food-waste-record.firebasestorage.app",
+  messagingSenderId: "891094328182",
+  appId: "1:891094328182:web:18d1c293b282324dabd057",
+  measurementId: "G-M6WWZ0CR05"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const error_message_dict = {
   // General Errors
   'auth/invalid-email': 'Please enter a valid email address.',
@@ -21,8 +34,8 @@ const error_message_dict = {
   'auth/too-many-requests': 'Too many attempts. Please try again later.',
 
   // Email/Password Sign-up
-  'auth/email-already-in-use': 'This email is already registered.',
-  'auth/weak-password': 'Password must be at least 6 characters.',
+  'auth/email-already-in-use': 'This email is already registered. Please login instead.',
+  'auth/weak-password': 'Password must include at least 6 characters.',
   'auth/operation-not-allowed': 'Email/password login is not enabled.',
 
   // Google/Federated Auth
@@ -46,66 +59,52 @@ const error_message_dict = {
   'default': 'Login failed. Please try again.'
 };
 
-const API_key = window.firebase_API_key;
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCYEoyWgcbPsiNFVd30KYjkshD5AgjF9Bk"/*API_key*/,
-  authDomain: "food-waste-record.firebaseapp.com",
-  databaseURL: "https://food-waste-record-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "food-waste-record",
-  storageBucket: "food-waste-record.firebasestorage.app",
-  messagingSenderId: "891094328182",
-  appId: "1:891094328182:web:18d1c293b282324dabd057",
-  measurementId: "G-M6WWZ0CR05"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-
-sign_in_btn.addEventListener("click", async ()=> {
-    const sign_in_result = await sign_in();
-    if (sign_in_result.status) {
-        error_div.style.display = "none";
-        check_recaptcha();
+sign_up_btn.addEventListener("click", async () => {
+    if (updateButtonColor()) {
+        const sign_up_respond = await sign_up();
+        if(sign_up_respond["status"]) {
+            window.location.href="/page_analysis/analysis.html"
+        } else {
+            sendError(sign_up_respond["error"])
+        }
     } else {
-        sendError(sign_in_result.error)
+        sendError("Please enter your email and password. Password must include at least 6 characters.")
     }
 })
 
-google_btn.addEventListener("click", async ()=> {
-    const sign_in_result = await google_signin()
-    if (sign_in_result.status) {
-        window.location.href = '/page_analysis/analysis.html';
-    } else {
-        sendError(sign_in_result.error)
-    }
-})
-
-async function google_signin() {
-    const provider = new GoogleAuthProvider();
-    try {
-        const result = await signInWithPopup(auth, provider);
-        return {"status":true,"user":result.user}
-    } catch (error) {
-        console.error("Google sign-in error:", error);
-        return {"status":false,"error":error.code};
-    }
-}
-
-async function sign_in() {
+async function sign_up() {
     const email = username_input.value;
     const password = password_input.value;
     try {
-        const result = await signInWithEmailAndPassword(auth, email, password)
+        const result = await createUserWithEmailAndPassword(auth, email, password)
         return {"status":true,"user":result.user}
     } catch (error) {
+        console.log("have error")
+        console.log(error)
+        console.log(error.code)
         return {"status":false,"error":error.code}
     }
 }
 
+function updateButtonColor() {
+    const active = username_input.value.length > 0 && password_input.value.length >= 6
+    sign_up_btn.style.backgroundColor = active ? "#2e8b57" : "#84c7ae";
+    return active;
+}
+
+setInterval(updateButtonColor, 10);
+
+sign_up_btn.addEventListener("mouseenter",() => {
+    sign_up_btn.style.backgroundColor = updateButtonColor() ? "#5aa37d;" : "#84c7ae";
+})
+
+sign_up_btn.addEventListener("mouseleave",() => {
+    updateButtonColor();
+})
+
 function sendError(error_text) {
-    const show_text = error_message_dict[error_text]!= null ? error_message_dict[error_text] : error_text
+    const show_text = error_message_dict[error_text]!= undefined ? error_message_dict[error_text] : error_text
     error_message.innerText = show_text;
     error_div.style.display = "block";
+    console.log(error_text)
 }

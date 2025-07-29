@@ -2,14 +2,40 @@ body {
     background-color: #F6FBF9;
     font-family: "instrument sans";
     text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .create {
-    background-color: #84c7ae;
+    /*background-color: #84c7ae;*/
     color: white;
     border: none;
     border-radius: 20px;
-    margin: 20px;
     padding: 20px;
     width: 300px;
+    font-size: 16px;
+    margin-top: 16px;
+}
+
+.error_div {
+  background-color: rgb(250, 65, 45);
+  display: none;
+  border-radius: 5px;
+  max-width: 365px;
+  align-items: center;
+  text-align: center;
+  padding-top: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 16px;
+  margin-top: 16px;
+}
+
+.error_message {
+  background-color: transparent;
+  color: #FFFFFF;
+  font-family: 'Instrument Sans';
+  font-weight: 400;
+  font-size: 18px;
 }
