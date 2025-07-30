@@ -39,3 +39,24 @@ body {
   font-weight: 400;
   font-size: 18px;
 }
+
+.textbox1 {
+  width: 400px; 
+  height: 40px; 
+  border-radius: 16px; 
+  border: 1px solid black;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+/*.textbox2 {
+  appearance: none;
+  width: 400px;
+  height: 40px; 
+  border-radius: 16px; 
+  padding-left: 10px; 
+  margin-bottom: 10px; 
+  background-color: #d8f8eb;
+  color: white;
+  border: 1px solid black;
+}*/
