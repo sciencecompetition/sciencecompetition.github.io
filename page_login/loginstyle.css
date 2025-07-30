@@ -181,3 +181,19 @@ h1 {
 #google:hover {
   background-color: transparent;
 }
+
+.authorization_button {
+  margin-top: 8px; 
+  width: 150px;
+  border-radius:5px;
+  height: 30px;
+  border: 1px solid black;
+  background-color: #84c7ae;
+  color: black;
+  text-align: center;
+}
+
+.authorization_button:hover {
+  background-color: #7fbda6;
+  cursor: pointer;
+}

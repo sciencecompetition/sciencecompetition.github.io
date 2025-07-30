@@ -5,7 +5,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   setPersistence,
-  browserSessionPersistence
+  browserSessionPersistence,
+  sendEmailVerification
 } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
 
 const username_input = document.getElementById("username")
@@ -14,6 +15,7 @@ const sign_in_btn = document.getElementById("submit")
 const google_btn = document.getElementById("google")
 const error_div = document.querySelector(".error_div")
 const error_message = document.querySelector(".error_message")
+const authorization_button = document.querySelector(".authorization_button")
 let can_signin = false;
 const error_message_dict = {
   // General Errors
@@ -80,7 +82,11 @@ sign_in_btn.addEventListener("click", async ()=> {
     const sign_in_result = await sign_in();
     if (sign_in_result.status) {
         error_div.style.display = "none";
-        check_recaptcha();
+        if (sign_in_result.user.emailVerified) {
+          check_recaptcha();
+        } else {
+          sendError("Your email address is not authorized. Try to login again after authorizing it.")
+        }
     } else {
         sendError(sign_in_result.error)
     }
@@ -125,3 +131,8 @@ function sendError(error_text) {
     error_message.innerText = show_text;
     error_div.style.display = "block";
 }
+
+authorization_button.addEventListener("click", async () => {
+  await sendEmailVerification(auth.currentUser)
+  alert("We've sent an authorization email to your mailbox, please check it to authorize your email")
+})

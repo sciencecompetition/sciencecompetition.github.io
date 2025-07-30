@@ -26,7 +26,7 @@ const welcome_text = document.getElementById("welcome_text")
 console.log(auth.currentUser)
 
 onAuthStateChanged(auth, (user) => {
-  if (user) {
+  if (user && user.emailVerified) {
     const user_id = user.uid
     console.log(user_id)
 
@@ -144,8 +144,7 @@ onAuthStateChanged(auth, (user) => {
     })
     // finish data fetching////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   } else {
-    console.log("No user signed in");
-    window.location.href = "/index.html";
+    window.location.href = "/page_login/login.html";
   }
 });
 
