@@ -3,7 +3,10 @@ import {
   getAuth, 
   createUserWithEmailAndPassword,
   setPersistence,
-  browserSessionPersistence
+  browserSessionPersistence,
+  sendEmailVerification,
+  onAuthStateChanged,
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
 
 const username_input = document.getElementById("username")
@@ -11,7 +14,10 @@ const password_input = document.getElementById("password")
 const error_div = document.querySelector(".error_div")
 const error_message = document.querySelector(".error_message")
 const sign_up_btn = document.getElementById("sign_up_btn")
+const authorization_div = document.querySelector(".authorization_div")
+const authorization_button = document.querySelector(".authorization_button")
 let can_signin = false;
+const displayName = document.getElementById("suggested_username")
 
 const API_key = window.firebase_API_key;
 
@@ -76,14 +82,17 @@ setPersistence(auth, browserSessionPersistence)
 sign_up_btn.addEventListener("click", async () => {
   if (can_signin) {
     if (updateButtonColor()) {
+        error_div.style.display = "none"
         const sign_up_respond = await sign_up();
+        updateProfile(sign_up_respond["user"],{"displayName":displayName.value})
         if(sign_up_respond["status"]) {
-            window.location.href="/page_analysis/analysis.html"
+          await sendEmailVerification(auth.currentUser);
+          authorization_div.style.display = "block";
         } else {
             sendError(sign_up_respond["error"])
         }
     } else {
-        sendError("Please enter your email and password. Password must include at least 6 characters.")
+        sendError("Please enter your email, password, and username. Password must include at least 6 characters.")
     }
   }
 })
@@ -118,9 +127,19 @@ sign_up_btn.addEventListener("mouseleave",() => {
     updateButtonColor();
 })
 
+authorization_button.addEventListener("click", () => {
+  location.reload();
+})
+
 function sendError(error_text) {
     const show_text = error_message_dict[error_text]!= undefined ? error_message_dict[error_text] : error_text
     error_message.innerText = show_text;
     error_div.style.display = "block";
     console.log(error_text)
 }
+
+onAuthStateChanged(auth, (user) => {
+  if (user.emailVerified) {
+    window.location.href = "/page_analysis/analysis.html";
+  }
+})

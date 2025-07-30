@@ -18,8 +18,7 @@ body {
     margin-top: 16px;
 }
 
-.error_div {
-  background-color: rgb(250, 65, 45);
+.error_div, .authorization_div {
   display: none;
   border-radius: 5px;
   max-width: 365px;
@@ -32,7 +31,15 @@ body {
   margin-top: 16px;
 }
 
-.error_message {
+.error_div {
+  background-color: rgb(250, 65, 45);
+}
+
+.authorization_div {
+  background-color: rgb(160, 255, 160);
+}
+
+.error_message, .authorization_message {
   background-color: transparent;
   color: #FFFFFF;
   font-family: 'Instrument Sans';
@@ -60,3 +67,22 @@ body {
   color: white;
   border: 1px solid black;
 }*/
+
+.authorization_button {
+  margin-top: 8px; 
+  width: 70px;
+  border-radius:5px;
+  height: 30px;
+  border: 1px solid black;
+  background-color: #84c7ae;
+  color: black;
+}
+
+.authorization_message {
+  color: black;
+}
+
+.authorization_button:hover {
+  background-color: #7fbda6;
+  cursor: pointer;
+}

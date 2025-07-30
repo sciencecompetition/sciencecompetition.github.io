@@ -21,15 +21,18 @@ const raw_date = new Date("2025-6-27");
 const raw_previous_date = new Date(raw_date);
 const food_types = ["Chilli","Corn","Meatball"];
 const chart_types = ["bar","pie","line"]
+const welcome_text = document.getElementById("welcome_text")
 
 console.log(auth.currentUser)
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const user_id = user.uid
+    console.log(user_id)
 
     //logged in, proceed with the data fetching stuff
 
+    welcome_text.innerText = `Welcome, ${user.displayName}!`
     raw_previous_date.setDate(raw_date.getDate() - 6);
 
     function stringifyDate(date) {
@@ -53,7 +56,7 @@ onAuthStateChanged(auth, (user) => {
     function refresh_dataObject() {
         Promise.all(
         food_types.map(item =>
-            getData(`/${item}/${full_date}`).then(data => {
+            getData(`/${user_id}/${item}/${full_date}`).then(data => {
                 waste_dataObject[item] = data;
             })
             )
@@ -86,7 +89,6 @@ onAuthStateChanged(auth, (user) => {
     }
 
     async function updateChart(type) {
-        console.log("updating....")
         let chart_ele = document.querySelector(`.${type}chartimg`)
         let label_var = [];
         if (type=="pie") {
@@ -105,7 +107,7 @@ onAuthStateChanged(auth, (user) => {
         } else {
             input_dataset = await Promise.all(
                 food_types.map(async (food) => {
-                    const return_value = await getDataList(food, previous_date, full_date);
+                    const return_value = await getDataList(`/${user_id}/${food}`, previous_date, full_date);
                     console.log(`return value for ${type}`)
                     console.log(return_value)
                     return {
@@ -123,6 +125,7 @@ onAuthStateChanged(auth, (user) => {
 
     // the first time show the photo+data
     refresh_dataObject();
+    console.log(waste_dataObject)
     updateChart("bar")
     updateChart("line")
 
