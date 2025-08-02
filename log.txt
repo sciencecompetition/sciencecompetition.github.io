@@ -1,0 +1,25 @@
+9/7/2025 11:34 AM Nomis Hui. Create HTML Branch and make index.html. 
+9/7/2025 11:52 AM Nomis Hui. Made a function such that stupid mobile users cannot go to the page.
+9/7/2025 12:34 PM Nomis Hui. Complete nav bar
+9/7/2025 1:09 PM Nomis Hui. Complete banner.
+
+Reflection:
+Today I had a slow momentum and I am sure that with more experience I can write
+code more swiftly. Now waiting for Chan Ching On's Project Description.
+
+9/7/2025 14:53 PM Nomis Hui. Start working.
+9/7/2025 15:27 PM Nomis Hui. Complete login html page despite Chan Ching On telling me to not finish. I am rebelling against Chan Ching On today!
+9/7/2025 15:46 PM Nomis Hui. Continue rebel Chan Ching On. Made sign up page. Me so quick so good.
+
+ah i need to go outside, later work
+
+9/7/2025 16:50 PM Nomis Hui. Start working.
+9/7/2025 17:35 PM Nomis Hui. Did some research and made half of analysis page
+9/7/2025 17:58 PM Nomis Hui. Complete whole analysis page
+
+9/7/2025 18:30 PM Nomis Hui. Start working
+9/7/2025 19:16 PM Nomis Hui. Complete analysis page
+9/7/2025 19:40 PM Nomis Hui. Complete deepseek page
+
+29/7/2025 18:41 PM Nomis Hui. Start working
+29/7/2025 19:18PM Nomis Hui. Complete translate function
