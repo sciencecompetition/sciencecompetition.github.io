@@ -30,6 +30,7 @@ jobs:
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_analysis/analysis.html
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_food/food.html
           sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_deepseek/deepseek.html
+          sed -i "s|<!-- FIREBASE_CONFIG -->|<script>window.firebase_API_key = \"$CONFIG_ESCAPED\";</script>|g" page_login/login.html
 
       - name: Add Deepseek Config
         run: |
