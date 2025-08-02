@@ -2,7 +2,7 @@ name: Stupid, get the API_key need so long time
 
 on:
   push:
-    branches: ["AI-assistant_code"]
+    branches: ["AI-assistant_code", "main"]
 
 jobs:
   deploy:
