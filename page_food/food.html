@@ -30,22 +30,22 @@
             <p id="daily_ratio">Waste ratio: NaN</p>
             <p id="daily_average">Average daily: NaN kg</p>
             <div>
-                <button class="btnstyle2">Download as PNG</button>
-                <button class="btnstyle3">Download as PDF</button>
+                <button class="btnstyle2" onclick="download_chart(document.querySelector('.dailyimg'),'png')">Download as PNG</button>
+                <button class="btnstyle3" onclick="download_chart(document.querySelector('.dailyimg'),'jpeg')">Download as JPG</button>
             </div>
         </div>
-        <image src="/image_sources/daily.png" class="dailyimg"></image>
+        <image src="" alt="loading" class="dailyimg" crossorigin="anonymous"></image>
     </div>
     <div class="weekly" id="weekly">
-        <image src="/image_sources/weekly.png" class="weeklyimg"></image>
+        <image src="/image_sources/weekly.png" class="weeklyimg" crossorigin="anonymous"></image>
         <div class="weeklytext">
             <h1>Weekly</h1>
             <span id="weekly_now">This week: NaN kg </span> <strong id="weekly_difference">(+NaNkg)</strong>
             <p id="weekly_ratio">Waste ratio: NaN kg</p>
             <p id="weekly_average">Average weekly: NaN kg</p>
             <div>
-                <button class="btnstyle2">Download as PNG</button>
-                <button class="btnstyle3">Download as PDF</button>
+                <button class="btnstyle2" onclick="download_chart(document.querySelector('.weeklyimg'),'png')">Download as PNG</button>
+                <button class="btnstyle3" onclick="download_chart(document.querySelector('.weeklyimg'),'jpeg')">Download as JPG</button>
             </div>
         </div>
     </div>
@@ -56,11 +56,11 @@
             <p id="monthly_ratio">Waste ratio: NaN kg</p>
             <p id="monthly_average">Average monthly: NaN kg</p>
             <div>
-                <button class="btnstyle2">Download as PNG</button>
-                <button class="btnstyle3">Download as PDF</button>
+                <button class="btnstyle2" onclick="download_chart(document.querySelector('.monthlyimg'),'png')">Download as PNG</button>
+                <button class="btnstyle3" onclick="download_chart(document.querySelector('.monthlyimg'),'jpeg')">Download as JPG</button>
             </div>
         </div>
-        <image src="/image_sources/monthly.png" class="monthlyimg"></image>
+        <image src="/image_sources/monthly.png" class="monthlyimg" crossorigin="anonymous"></image>
     </div>
     <div class="lightgbm">
         <image src="/image_sources/LGBM.svg" class="lgbmimg"></image>

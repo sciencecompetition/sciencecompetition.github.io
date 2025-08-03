@@ -34,40 +34,37 @@
         <h1>Check Meatball Food Waste</h1>
     </div>
     <div class="barchart">
-        <image src="https://i0.wp.com/statisticsbyjim.com/wp-content/uploads/2021/06/bar_chart_clustered.png?fit=576%2C384&ssl=1" class="barchartimg"></image>
+        <image src="" alt="loading" class="barchartimg" crossorigin="anonymous"></image>
         <div class="barcharttext">
             <h1>Bar Chart</h1>
             <button class="btnstyle1" id="bar_regenerate">Regenerate</button>
-            <button class="btnstyle2">Download as PNG</button>
-            <button class="btnstyle3">Download as PDF</button>
+            <button class="btnstyle2" onclick="download_chart(document.querySelector('.barchartimg'),'png')">Download as PNG</button>
+            <button class="btnstyle3" onclick="download_chart(document.querySelector('.barchartimg'),'jpeg')">Download as JPG</button>
         </div>
     </div>
     <div class="piechart">
         <div class="piecharttext">
             <h1>Pie Chart</h1>
             <button class="btnstyle1" id="pie_regenerate">Regenerate</button>
-            <button class="btnstyle2">Download as PNG</button>
-            <button class="btnstyle3">Download as PDF</button>
+            <button class="btnstyle2" onclick="download_chart(document.querySelector('.piechartimg'),'png')">Download as PNG</button>
+            <button class="btnstyle3" onclick="download_chart(document.querySelector('.piechartimg'),'jpeg')">Download as JPG</button>
         </div>
-        <image src="https://www.jaspersoft.com/content/dam/jaspersoft/images/graphics/infographics/pie-chart-example.svg" class="piechartimg"></image>
+        <image src="" alt="loading" class="piechartimg" crossorigin="anonymous"></image>
     </div>
     <div class="linechart">
-        <image src="https://dr282zn36sxxg.cloudfront.net/datastreams/f-d%3A52fbdfec2fdcc41df2f2723fbaf3c1cd502ae0ed33f8c7020dcc2117%2BIMAGE_TINY%2BIMAGE_TINY.1" class="linechartimg"></image>
+        <image src="" alt="loading" class="linechartimg" crossorigin="anonymous"></image>
         <div class="linecharttext">
             <h1>Line Chart</h1>
             <button class="btnstyle1" id="line_regenerate">Regenerate</button>
-            <button class="btnstyle2">Download as PNG</button>
-            <button class="btnstyle3">Download as PDF</button>
+            <button class="btnstyle2" onclick="download_chart(document.querySelector('.linechartimg'),'png')">Download as PNG</button>
+            <button class="btnstyle3" onclick="download_chart(document.querySelector('.lienchartimg'),'jpeg')">Download as JPG</button>
         </div>
     </div>
     <div>
-        <button class="homebtn" id="homeBtn">Home</button>
+        <button class="homebtn" id="homeBtn">Log out</button>
     </div>
 </body>
 <script>
-    document.getElementById('homeBtn').onclick = function() {
-        window.location.href = '/page_analysis/analysis.html';
-    };
     document.getElementById('deepseekimg').onclick = function() {
         window.location.href = '/page_deepseek/deepseek.html';
     };

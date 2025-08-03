@@ -197,3 +197,7 @@ h1 {
   background-color: #7fbda6;
   cursor: pointer;
 }
+
+.hide {
+  display:none;
+}

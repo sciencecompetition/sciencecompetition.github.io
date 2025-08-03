@@ -137,3 +137,7 @@ h1 {
 .btnstyle1:active {
     background-color: red;
 }
+
+button:hover {
+    cursor:pointer;
+}

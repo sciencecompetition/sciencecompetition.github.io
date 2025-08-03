@@ -1,6 +1,6 @@
 import { getData, getDataList } from "/firebase.js"
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCYEoyWgcbPsiNFVd30KYjkshD5AgjF9Bk"/*API_key*/,
@@ -22,6 +22,7 @@ const raw_previous_date = new Date(raw_date);
 const food_types = ["Chilli","Corn","Meatball"];
 const chart_types = ["bar","pie","line"]
 const welcome_text = document.getElementById("welcome_text")
+const logout_btn = document.getElementById('homeBtn')
 
 console.log(auth.currentUser)
 
@@ -46,6 +47,22 @@ onAuthStateChanged(auth, (user) => {
             day = `0${day}`
         }
         return `${year}${month}${day}`
+    }
+
+    window.download_chart = function (img, format) {
+        const canva = document.createElement("canvas");
+        canva.width = img.naturalWidth
+        canva.height = img.naturalHeight;
+        const canva_content = canva.getContext("2d");
+        const temp_btn = document.createElement("a");
+        let url = "";
+        canva_content.drawImage(img,0,0);
+        url=canva.toDataURL(`image/${format}`);
+        temp_btn.href = url;
+        temp_btn.download = `chart.${format}`;
+        document.body.appendChild(temp_btn)
+        temp_btn.click();
+        document.body.removeChild(temp_btn)
     }
 
     const full_date = stringifyDate(raw_date)
@@ -143,6 +160,14 @@ onAuthStateChanged(auth, (user) => {
             })
     })
     // finish data fetching////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    logout_btn.addEventListener("click", async () => {
+        try {
+            await signOut(auth);
+        } catch (err) {
+            alert(`There's an error ${err}. Please close the tab to sign out. If this problem continues, please contact us.`)
+        }
+    })
   } else {
     window.location.href = "/page_login/login.html";
   }

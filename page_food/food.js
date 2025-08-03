@@ -58,6 +58,8 @@ async function verifiedUser(user_id) {
     const waste_today_ele = document.getElementById("waste_today");
     const waste_total_ele = document.getElementById("waste_total");
     const buy_Object = await getData(`/${user_id}/${food_type}_buy`)//whole food data on buying
+    //const download_png = [...document.querySelectorAll(".btnstyle2")].slice(1,4);
+    //const download_jpg = [...document.querySelectorAll(".btnstyle")].slice(1,4);
     title_ele.innerText = food_type;
     photo.src = `/image_sources/${food_type}.png`
 
@@ -211,6 +213,22 @@ async function verifiedUser(user_id) {
         }
         const return_url = "https://quickchart.io/chart?c="+JSON.stringify(jsonInput);
         return return_url;
+    }
+
+    window.download_chart = function (img, format) {
+        const canva = document.createElement("canvas");
+        canva.width = img.naturalWidth
+        canva.height = img.naturalHeight;
+        const canva_content = canva.getContext("2d");
+        const temp_btn = document.createElement("a");
+        let url = "";
+        canva_content.drawImage(img,0,0);
+        url=canva.toDataURL(`image/${format}`);
+        temp_btn.href = url;
+        temp_btn.download = `chart.${format}`;
+        document.body.appendChild(temp_btn)
+        temp_btn.click();
+        document.body.removeChild(temp_btn)
     }
 
     function formatData(object) {
