@@ -85,10 +85,10 @@ sign_in_btn.addEventListener("click", async ()=> {
         if (sign_in_result.user.emailVerified) {
           check_recaptcha();
         } else {
-          sendError("Your email address is not authorized. Try to login again after authorizing it.")
+          sendError("Your email address is not authorized. Try to login again after authorizing it.",true)
         }
     } else {
-        sendError(sign_in_result.error)
+        sendError(sign_in_result.error,false)
     }
   }
 })
@@ -99,7 +99,7 @@ google_btn.addEventListener("click", async ()=> {
     if (sign_in_result.status) {
         window.location.href = '/page_analysis/analysis.html';
     } else {
-        sendError(sign_in_result.error)
+        sendError(sign_in_result.error,false)
     }
   }
 })
@@ -126,10 +126,15 @@ async function sign_in() {
     }
 }
 
-function sendError(error_text) {
+function sendError(error_text,authorizeEmail=false) {
     const show_text = error_message_dict[error_text]!= null ? error_message_dict[error_text] : error_text
     error_message.innerText = show_text;
     error_div.style.display = "block";
+    if(!authorizeEmail) {
+      authorization_button.classList.add("hide")
+    } else {
+      authorization_button.classList.remove("hide")
+    }
 }
 
 authorization_button.addEventListener("click", async () => {
