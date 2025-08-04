@@ -83,3 +83,7 @@
 p, span, strong {
     font-size: 30px;
 }
+
+button:hover {
+    cursor: pointer;
+}
