@@ -26,7 +26,7 @@ body {
 .deepseek, .chilli, .corn, .meatball{
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 h1 {
@@ -34,27 +34,22 @@ h1 {
     font-weight: normal;
 }
 
-.chilliimg {
+.meatballimg, .cornimg, .chilliimg {
     height: 80px;
-    width: auto;
-    max-width: 161px;
-    max-height: 161px;
-    border-radius: 20px;
-}
-
-.cornimg {
-    height: 80px;
+    width: 80px;
+    overflow: hidden;
+    object-fit: cover;
     max-width: 161px;
     max-height: 114px;
     border-radius: 20px;
 }
 
-.meatballimg {
-    height: 80px;
-    width: auto;
-    max-width: 161px;
-    max-height: 114px;
-    border-radius: 20px;
+.redirect_button:hover {
+    cursor:pointer;
+}
+
+.deepseekimg, .meatballimg,.cornimg, .chilliimg {
+    margin-right: 8px;
 }
 
 .chilliimg:hover, .cornimg:hover, .meatballimg:hover, .deepseekimg:hover {
