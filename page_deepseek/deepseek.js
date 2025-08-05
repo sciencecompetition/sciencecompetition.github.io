@@ -20,7 +20,7 @@ const chatbox_parent = document.querySelector(".chatbox_parent");
 const home_btn = document.getElementById("homeBtn");
 const checkbox = document.getElementById("include_data_checkbox");
 const deepseek_url = "https://router.huggingface.co/fireworks-ai/inference/v1/chat/completions";
-const raw_date = new Date("2025-6-27");
+const raw_date = new Date("2025-8-7");
 const month_before_raw = new Date(raw_date);
 month_before_raw.setDate(raw_date.getDate() - 29);
 const full_date = stringifyDate(raw_date);

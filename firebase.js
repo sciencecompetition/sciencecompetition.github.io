@@ -28,7 +28,7 @@ export async function getData(location) {
     if (return_data.exists()) {
         return {"data":return_data.val(),"Status":true};
     } else {
-        return {"Status":false};
+        return {"Status":false,"data":0};
     }
 }
 
@@ -38,7 +38,9 @@ export async function getDataList(type, start_num, end_num) {
     const snapshot = await get(getList_query)
     let return_list = [];
     snapshot.forEach((data) => {
-        return_list.push(data.val());
+        const value = data.val();
+        return_list.push(value == undefined ? 0 : value);
+        console.log(value)
     })
     return return_list;
 }

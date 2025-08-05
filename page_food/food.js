@@ -46,7 +46,7 @@ async function verifiedUser(user_id) {
         return return_date_raw;
     }
 
-    const raw_date = new Date("2025-6-27");
+    const raw_date = new Date("2025-8-7");
     const full_date = stringifyDate(raw_date)
     const week_ago = stringifyDate(defDate(6))
     const month_ago = stringifyDate(defDate(29))
@@ -66,10 +66,12 @@ async function verifiedUser(user_id) {
     getData(`/${user_id}/${food_type}`).then(async (return_value) => {
         let data_Object = return_value["data"] //one food all data
         let data_list = []; //data_list[0] is the newest one
+        if (!data_Object[full_date]) {
+            data_Object[full_date] = 0;
+        }
         Object.values(data_Object).forEach((value) => {
             data_list.push(value);
         })
-
         data_list.reverse();
         let data_sum = calculateSum(data_list);
         waste_total_ele.innerText = data_sum
