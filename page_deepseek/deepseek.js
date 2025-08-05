@@ -145,7 +145,7 @@ async function loadData() {
     const upload_data = {};
     
     await Promise.all(key_list.map(async (key_name) => {
-        const data_list = await getDataList(key_name, month_before, full_date);
+        const data_list = await getDataList(`/E11P6d17UbOEIg1eZ9BwOzV32h72/${key_name}`, month_before, full_date);
         let data_object = {};
         let currentDate = new Date(month_before_raw); // Start from the initial date
         
