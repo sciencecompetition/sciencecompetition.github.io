@@ -1,0 +1,138 @@
+body {
+    font-family: 'Instrument Sans';
+    background-color: #F9F5FF;
+}
+
+.welcomehoo {
+    font-size: 50px;
+}
+.strong1 {
+    font-weight: bold;
+    color: red;
+    font-size: 45px;
+}
+
+.welcometext {
+    font-size: 30px;
+}
+
+.deepseekimg {
+    height: 80px;
+    width: auto;
+    max-height: 161px;
+    max-width: 161px;
+}
+
+.deepseek, .chilli, .corn, .meatball{
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: normal;
+}
+
+.meatballimg, .cornimg, .chilliimg {
+    height: 80px;
+    width: 80px;
+    overflow: hidden;
+    object-fit: cover;
+    max-width: 161px;
+    max-height: 114px;
+    border-radius: 20px;
+}
+
+.redirect_button:hover {
+    cursor:pointer;
+}
+
+.deepseekimg, .meatballimg,.cornimg, .chilliimg {
+    margin-right: 8px;
+}
+
+.chilliimg:hover, .cornimg:hover, .meatballimg:hover, .deepseekimg:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.barchart, .piechart, .linechart {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.barchartimg, .piechartimg, .linechartimg {
+    width: 50%;
+    height: auto;
+}
+
+.barcharttext, .piecharttext, .linecharttext {
+    width: 50%;
+}
+
+.btnstyle1 {
+    border-radius: 20px;
+    font-size: 40px;
+    width: 80%;
+    color: white;
+    border: none;
+    background-color: #229BCC;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+
+
+
+.btnstyle2 {
+    border-radius: 20px;
+    font-size: 40px;
+    width: 80%;
+    color: white;
+    background-color: #6379F4;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    padding: 10px;
+    margin: 20px;
+}
+
+.btnstyle3 {
+    border-radius: 20px;
+    font-size: 40px;
+    width: 80%;
+    color: white;
+    background-color: #6D5DD3;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    padding: 10px;
+    margin: 20px;
+}
+
+.homebtn {
+    background-color: #229BCC;
+    color: white;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    font-size: 40px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.btnstyle1:hover {
+    background-color: #47a3c8;
+    cursor:pointer;
+}
+
+.btnstyle1:active {
+    background-color: red;
+}
+
+button:hover {
+    cursor:pointer;
+}

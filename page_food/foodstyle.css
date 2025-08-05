@@ -1,0 +1,89 @@
+* {
+    font-family: Instrument Sans;
+    background-color: #FFF8F8;
+}
+.foodimg {
+    width: 50%;
+    border-radius: 20px;
+    border: none;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+}
+
+.toptext {
+    margin-left: 20px;
+    padding: 20px;
+}
+.btnstyle1 {
+    border-radius: 20px;
+    font-size: 30px;
+    width: 80%;
+    color: white;
+    border: none;
+    background-color: #229BCC;
+    padding: 10px;
+    margin: 5px;
+}
+
+.btnstyle2 {
+    border-radius: 20px;
+    font-size: 30px;
+    width: 80%;
+    color: white;
+    background-color: #6379F4;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+}
+
+.btnstyle3 {
+    border-radius: 20px;
+    font-size: 30px;
+    width: 80%;
+    color: white;
+    background-color: #6D5DD3;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+}
+
+.daily, .weekly, .monthly, .lightgbm{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.dailyimg, .weeklyimg, .monthlyimg, .lgbmimg {
+    width: 50%;
+}
+
+.homebtn {
+    background-color: #229BCC;
+    color: white;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    font-size: 40px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.btnstyle1:hover, .btnstyle2:hover, .btnstyle3:hover, .homebtn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.lgbmtext {
+    margin-left:24px;
+}
+
+p, span, strong {
+    font-size: 30px;
+}
+
+button:hover {
+    cursor: pointer;
+}

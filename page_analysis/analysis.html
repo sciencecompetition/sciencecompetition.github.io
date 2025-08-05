@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis</title>
+    <link rel="stylesheet" href="analysisstyle.css">
+    <link href='https://fonts.googleapis.com/css?family=Instrument Sans' rel='stylesheet'>
+    <script src="/checkpc.js"></script>
+    <script>window.firebase_API_key = "AIzaSyCYEoyWgcbPsiNFVd30KYjkshD5AgjF9Bk";</script>
+    <script type="module" src="/firebase.js"></script>
+    <script type="module" src="analysis.js"></script>
+</head>
+<body>
+    <div class="welcometext">
+        <p class="welcomehoo" id="welcome_text">Welcome, Chan Ching On!</p>
+        <p>You have wasted around <strong class="strong1" id="">0</strong> kilograms of food waste today!</p>
+    </div>
+    <div class="deepseek">
+        <image src="/image_sources/deepseek-logo-01.png" class="deepseekimg" id="deepseekimg"></image>
+        <h1 class="redirect_button" id="deepseek_btn">Ask AI Assistant on Food Waste Info</h1>
+        
+    </div>
+    <div class="chilli">
+        <image src="https://www.harighotra.co.uk/images/Shutterstock/chillies_560x560.jpg" class="chilliimg" index="chilli"></image>
+        <h1 class="redirect_button" id="chilli_btn">Check Chilli Food Waste</h1>
+    </div>
+    <div class="corn">
+        <image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqQg6Ktb97YXOU1w9eEkN_MbIUVyoXL0jHcA&s" class="cornimg" index="corn"></image>
+        <h1 class="redirect_button" id="corn_btn">Check Corn Food Waste</h1>
+    </div>
+    <div class="meatball">
+        <image src="https://www.giallozafferano.com/images/270-27011/Meatballs_1200x800.jpg" class="meatballimg" index="meatball"></image>
+        <h1 class="redirect_button" id="meatball_btn">Check Meatball Food Waste</h1>
+    </div>
+    <div class="barchart">
+        <image src="" alt="loading" class="barchartimg" crossorigin="anonymous"></image>
+        <div class="barcharttext">
+            <h1>Bar Chart</h1>
+            <button class="btnstyle1" id="bar_regenerate">Regenerate</button>
+            <button class="btnstyle2" onclick="download_chart(document.querySelector('.barchartimg'),'png')">Download as PNG</button>
+            <button class="btnstyle3" onclick="download_chart(document.querySelector('.barchartimg'),'jpeg')">Download as JPG</button>
+        </div>
+    </div>
+    <div class="piechart">
+        <div class="piecharttext">
+            <h1>Pie Chart</h1>
+            <button class="btnstyle1" id="pie_regenerate">Regenerate</button>
+            <button class="btnstyle2" onclick="download_chart(document.querySelector('.piechartimg'),'png')">Download as PNG</button>
+            <button class="btnstyle3" onclick="download_chart(document.querySelector('.piechartimg'),'jpeg')">Download as JPG</button>
+        </div>
+        <image src="" alt="loading" class="piechartimg" crossorigin="anonymous"></image>
+    </div>
+    <div class="linechart">
+        <image src="" alt="loading" class="linechartimg" crossorigin="anonymous"></image>
+        <div class="linecharttext">
+            <h1>Line Chart</h1>
+            <button class="btnstyle1" id="line_regenerate">Regenerate</button>
+            <button class="btnstyle2" onclick="download_chart(document.querySelector('.linechartimg'),'png')">Download as PNG</button>
+            <button class="btnstyle3" onclick="download_chart(document.querySelector('.lienchartimg'),'jpeg')">Download as JPG</button>
+        </div>
+    </div>
+    <div>
+        <button class="homebtn" id="homeBtn">Log out</button>
+    </div>
+</body>
+<script>
+    const match = {
+        '.deepseekimg':"/page_deepseek/deepseek.html",
+        '#deepseek_btn':"/page_deepseek/deepseek.html",
+        '.chilliimg':'/page_food/food.html?food=Chilli',
+        '#chilli_btn':'/page_food/food.html?food=Chilli',
+        '.cornimg':'/page_food/food.html?food=Corn',
+        '#corn_btn':'/page_food/food.html?food=Corn',
+        '.meatballimg':'/page_food/food.html?food=Meatball',
+        '#meatball_btn':'/page_food/food.html?food=Meatball'
+    }
+    function redirect(url) {
+        window.location.href = url;
+    }
+    Object.keys(match).forEach((ele) => {
+        console.log(ele)
+        document.querySelector(ele).addEventListener("click",() => {
+            redirect(match[ele])
+        })
+    })
+</script>
+</html>

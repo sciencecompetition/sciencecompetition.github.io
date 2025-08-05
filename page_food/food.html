@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food detail - AI Restaurant Food Waste Eliminator</title>
+    <script>window.firebase_API_key = "AIzaSyCYEoyWgcbPsiNFVd30KYjkshD5AgjF9Bk";</script>
+    <link rel="stylesheet" href="foodstyle.css">
+    <link href='https://fonts.googleapis.com/css?family=Instrument Sans' rel='stylesheet'>
+    <script src="/checkpc.js"></script>
+    <script src="/firebase.js" type="module"></script>
+    <script src="food.js" type="module"></script>
+</head>
+<body>
+    <div class="top">
+        <image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqQg6Ktb97YXOU1w9eEkN_MbIUVyoXL0jHcA&s" class="foodimg"></image>
+        <div class="toptext">
+            <h1 id="title">Corn</h1>
+            <p>Total historical waste: <strong id="waste_total">NaN</strong> kg</p>
+            <p>Waste today: <strong id="waste_today">NaN</strong> kg</p>
+            <button class="btnstyle1" id="daily_btn">Daily comparison</button>
+            <button class="btnstyle2" id="weekly_btn">Weekly comparison</button>
+            <button class="btnstyle3" id="monthly_btn">Monthly comparison</button>
+        </div>
+    </div>
+    <div class="daily" id="daily">
+        <div class="dailytext">
+            <h1>Daily</h1>
+            <span id="daily_now">Today: NaN kg </span> <strong id="daily_difference" style="color: red;">(+NaNkg)</strong>
+            <p id="daily_ratio">Waste ratio: NaN</p>
+            <p id="daily_average">Average daily: NaN kg</p>
+            <div>
+                <button class="btnstyle2" onclick="download_chart(document.querySelector('.dailyimg'),'png')">Download as PNG</button>
+                <button class="btnstyle3" onclick="download_chart(document.querySelector('.dailyimg'),'jpeg')">Download as JPG</button>
+            </div>
+        </div>
+        <image src="" alt="loading" class="dailyimg" crossorigin="anonymous"></image>
+    </div>
+    <div class="weekly" id="weekly">
+        <image src="/image_sources/weekly.png" class="weeklyimg" crossorigin="anonymous"></image>
+        <div class="weeklytext">
+            <h1>Weekly</h1>
+            <span id="weekly_now">This week: NaN kg </span> <strong id="weekly_difference">(+NaNkg)</strong>
+            <p id="weekly_ratio">Waste ratio: NaN kg</p>
+            <p id="weekly_average">Average weekly: NaN kg</p>
+            <div>
+                <button class="btnstyle2" onclick="download_chart(document.querySelector('.weeklyimg'),'png')">Download as PNG</button>
+                <button class="btnstyle3" onclick="download_chart(document.querySelector('.weeklyimg'),'jpeg')">Download as JPG</button>
+            </div>
+        </div>
+    </div>
+    <div class="monthly" id="monthly">
+        <div class="monthlytext">
+            <h1>Monthly</h1>
+            <span id="monthly_now">This month: NaN kg </span> <strong id="monthly_difference">(+NaNkg)</strong>
+            <p id="monthly_ratio">Waste ratio: NaN kg</p>
+            <p id="monthly_average">Average monthly: NaN kg</p>
+            <div>
+                <button class="btnstyle2" onclick="download_chart(document.querySelector('.monthlyimg'),'png')">Download as PNG</button>
+                <button class="btnstyle3" onclick="download_chart(document.querySelector('.monthlyimg'),'jpeg')">Download as JPG</button>
+            </div>
+        </div>
+        <image src="/image_sources/monthly.png" class="monthlyimg" crossorigin="anonymous"></image>
+    </div>
+    <div class="lightgbm">
+        <image src="/image_sources/LGBM.svg" class="lgbmimg"></image>
+        <div class="lgbmtext">
+            <h1>AI suggestion (LightGBM)</h1>
+            <span>Buy <strong id="AI_suggestion">NaN</strong> kg of </span> <span id="food_type">Chilli</span>
+        </div>
+    </div>
+    <div>
+        <button class="homebtn" id="homeBtn">Home</button>
+    </div>
+</body>
+</html>
