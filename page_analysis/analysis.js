@@ -17,7 +17,7 @@ const app = await initializeApp(firebaseConfig);
 const auth = await getAuth(app);
 
 const today_waste_ele = document.querySelector(".strong1");
-const raw_date = new Date("2025-8-7");
+const raw_date = new Date("2025-8-30");
 const raw_previous_date = new Date(raw_date);
 const food_types = ["Chilli","Corn","Meatball"];
 const chart_types = ["bar","pie","line"]

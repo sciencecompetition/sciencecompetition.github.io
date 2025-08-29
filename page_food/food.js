@@ -46,7 +46,7 @@ async function verifiedUser(user_id) {
         return return_date_raw;
     }
 
-    const raw_date = new Date("2025-8-7");
+    const raw_date = new Date("2025-8-30");
     const full_date = stringifyDate(raw_date)
     const week_ago = stringifyDate(defDate(6))
     const month_ago = stringifyDate(defDate(29))
